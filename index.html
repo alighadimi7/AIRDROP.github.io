@@ -1,51 +1,36 @@
-<!DOCTYPE HTML><html>
+<!DOCTYPE HTML><html lang="fa" dir="rtl">
 	<head>
-		<title>Arcana by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<title>قالب Arcana راست‌چین شده</title>
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			body {
-				direction: rtl;
-				text-align: right;
-			}
-			nav ul {
-				padding-right: 0;
-			}
-			nav ul li {
-				float: right;
-			}
-			.image.left {
-				float: right;
-				margin-left: 1em;
-				margin-right: 0;
-			}
-			textarea, input {
-				text-align: right;
-			}
+			body { direction: rtl; text-align: right; font-family: Tahoma, Arial, sans-serif; }
+			nav ul { padding-right: 0; }
+			ul { list-style: none; padding: 0; }
+			.box .image.left { float: right; margin-left: 20px; margin-right: 0; }
+			form input, form textarea { text-align: right; }
 		</style>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
 			<div id="header">
-				<h1><a href="index.html" id="logo">Arcana <em>by HTML5 UP</em></a></h1>
+				<h1><a href="index.html" id="logo">قالب Arcana</a></h1>
 				<nav id="nav">
 					<ul>
-						<li class="current"><a href="index.html">صفحه اصلی</a></li>
-						<li><a href="#">فهرست</a>
+						<li class="current"><a href="index.html">خانه</a></li>
+						<li><a href="#">منو</a>
 							<ul>
-								<li><a href="#">لورم ایپسوم</a></li>
-								<li><a href="#">مگنا فازلس</a></li>
-								<li><a href="#">اتمام سدتپمس</a></li>
+								<li><a href="#">لینک ۱</a></li>
+								<li><a href="#">لینک ۲</a></li>
 							</ul>
 						</li>
-						<li><a href="right-sidebar.html">نوار کناری راست</a></li>
-						<li><a href="left-sidebar.html">نوار کناری چپ</a></li>
+						<li><a href="contact.html">تماس با ما</a></li>
 					</ul>
 				</nav>
 			</div><section id="banner">
 			<header>
-				<h2>قالب Arcana: <em>یک قالب ریسپانسیو رایگان از <a href="http://html5up.net">HTML5 UP</a></em></h2>
+				<h2>یک قالب ریسپانسیو رایگان از HTML5 UP</h2>
 				<a href="#" class="button">بیشتر بدانید</a>
 			</header>
 		</section>
@@ -64,27 +49,32 @@
 			</div>
 		</section>
 
+		<section id="cta" class="wrapper style3">
+			<div class="container">
+				<header>
+					<h2>آیا آماده هستید؟</h2>
+					<a href="#" class="button">ادامه دهید</a>
+				</header>
+			</div>
+		</section>
+
 		<div id="footer">
 			<div class="container">
 				<section class="col-6 col-12-narrower">
 					<h3>تماس با ما</h3>
 					<form>
-						<div class="row gtr-50">
-							<div class="col-6 col-12-mobilep">
-								<input type="text" name="name" id="name" placeholder="نام" />
-							</div>
-							<div class="col-6 col-12-mobilep">
-								<input type="email" name="email" id="email" placeholder="ایمیل" />
-							</div>
-						</div>
+						<input type="text" name="name" placeholder="نام" />
+						<input type="email" name="email" placeholder="ایمیل" />
+						<textarea name="message" placeholder="پیام" rows="5"></textarea>
+						<input type="submit" class="button alt" value="ارسال پیام" />
 					</form>
 				</section>
 			</div>
 		</div>
-	</div>
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/main.js"></script>
+	</div>
 </body>
 
 </html>
