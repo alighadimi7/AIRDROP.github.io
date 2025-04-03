@@ -52,21 +52,33 @@
             /* استایل برای منو */
             #nav {
                 display: block !important; /* مطمئن شدن از نمایش منو */
-                text-align: left !important; /* منو به صورت چپ‌چین برای نمایش بهتر */
-                direction: ltr !important; /* جهت منو برای جلوگیری از به‌هم‌ریختگی */
+                text-align: right !important; /* راست‌چین کردن منو */
+                direction: rtl !important; /* جهت منو برای فارسی */
             }
             #nav ul {
                 list-style: none;
                 margin: 0;
                 padding: 0;
+                display: flex; /* استفاده از flexbox برای چیدمان بهتر */
+                justify-content: flex-end; /* چیدمان از سمت راست */
             }
             #nav ul li {
                 display: inline-block;
-                margin-right: 10px; /* فاصله بین آیتم‌های منو */
+                margin-left: 15px; /* فاصله بین آیتم‌های منو */
             }
             #nav ul li a {
                 text-decoration: none;
                 color: #fff; /* رنگ متن منو */
+                font-size: 1em;
+            }
+            #nav ul ul {
+                display: none; /* منوهای کشویی به صورت پیش‌فرض مخفی */
+                position: absolute;
+                background: #333; /* پس‌زمینه منوی کشویی */
+                padding: 10px;
+            }
+            #nav ul li:hover > ul {
+                display: block; /* نمایش منوی کشویی هنگام هاور */
             }
 
             /* استایل برای آیکون‌های شبکه‌های اجتماعی */
@@ -76,7 +88,7 @@
             }
             .icons li {
                 display: inline-block;
-                margin: 0 10px; /* فاصله بین آیکون‌ها */
+                margin: 0 15px; /* فاصله بین آیکون‌ها */
             }
 
             /* استایل برای هدر (ایردراپ یاب) */
@@ -89,12 +101,14 @@
                 background: none !important; /* حذف پس‌زمینه احتمالی */
                 border: none !important; /* حذف کادر احتمالی */
                 text-align: center; /* وسط‌چین کردن متن هدر */
+                text-decoration: none; /* حذف زیرخط احتمالی */
             }
             #header h1 {
                 background: none !important; /* حذف کادر سفید */
                 border: none !important; /* حذف کادر احتمالی */
                 padding: 10px 0; /* فاصله عمودی */
                 margin: 0; /* حذف حاشیه‌های اضافی */
+                text-align: center; /* وسط‌چین کردن هدر */
             }
         </style>
     </head>
@@ -149,4 +163,173 @@
                 <div class="container">
                     <div class="row gtr-200">
                         <section class="col-4 col-12-narrower">
-                            <div class="box
+                            <div class="box highlight">
+                                <i class="icon solid major fa-paper-plane"></i>
+                                <h3>این مهم است</h3>
+                                <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                            </div>
+                        </section>
+                        <section class="col-4 col-12-narrower">
+                            <div class="box highlight">
+                                <i class="icon solid major fa-pencil-alt"></i>
+                                <h3>همچنین مهم</h3>
+                                <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                            </div>
+                        </section>
+                        <section class="col-4 col-12-narrower">
+                            <div class="box highlight">
+                                <i class="icon solid major fa-wrench"></i>
+                                <h3>احتمالاً مهم</h3>
+                                <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+
+            <!-- عنوان بزرگ -->
+            <section class="wrapper style2">
+                <div class="container">
+                    <header class="major">
+                        <h2>یک عنوان بسیار بزرگ که می‌توانید برای هر چیزی استفاده کنید</h2>
+                        <p>با یک زیرعنوان بسیار کوچک که درست زیر آن قرار دارد</p>
+                    </header>
+                </div>
+            </section>
+
+            <!-- پست‌ها -->
+            <section class="wrapper style1">
+                <div class="container">
+                    <div class="row">
+                        <section class="col-6 col-12-narrower">
+                            <div class="box post">
+                                <a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
+                                <div class="inner">
+                                    <h3>اولین مورد</h3>
+                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="col-6 col-12-narrower">
+                            <div class="box post">
+                                <a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
+                                <div class="inner">
+                                    <h3>دومین مورد</h3>
+                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col-6 col-12-narrower">
+                            <div class="box post">
+                                <a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
+                                <div class="inner">
+                                    <h3>سومین مورد</h3>
+                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="col-6 col-12-narrower">
+                            <div class="box post">
+                                <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
+                                <div class="inner">
+                                    <h3>چهارمین مورد</h3>
+                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+
+            <!-- فراخوان -->
+            <section id="cta" class="wrapper style3">
+                <div class="container">
+                    <header>
+                        <h2>آیا آماده‌اید که ماجراجویی خود را ادامه دهید؟</h2>
+                        <a href="#" class="button">سکه وارد کنید</a>
+                    </header>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <div id="footer">
+                <div class="container">
+                    <div class="row">
+                        <section class="col-3 col-6-narrower col-12-mobilep">
+                            <h3>لینک‌های مطالب</h3>
+                            <ul class="links">
+                                <li><a href="#">متیس ات کویس روترو</a></li>
+                                <li><a href="#">سوسپندیسه امیت واریوس</a></li>
+                                <li><a href="#">سد ات دابیپس کویس</a></li>
+                                <li><a href="#">روترو آکومسان دولور</a></li>
+                                <li><a href="#">متیس روترو آکومسان</a></li>
+                                <li><a href="#">سوسپندیسه واریوس نیب</a></li>
+                                <li><a href="#">سد ات دابیپس متیس</a></li>
+                            </ul>
+                        </section>
+                        <section class="col-3 col-6-narrower col-12-mobilep">
+                            <h3>لینک‌های بیشتر</h3>
+                            <ul class="links">
+                                <li><a href="#">دویس نکوئ نیسی دابیپس</a></li>
+                                <li><a href="#">سد ات دابیپس کویس</a></li>
+                                <li><a href="#">روترو آکومسان سد</a></li>
+                                <li><a href="#">متیس ات سد آکومسان</a></li>
+                                <li><a href="#">دویس نکوئ نیسی سد</a></li>
+                                <li><a href="#">سد ات دابیپس کویس</a></li>
+                                <li><a href="#">روترو امیت واریوس</a></li>
+                            </ul>
+                        </section>
+                        <section class="col-6 col-12-narrower">
+                            <h3>تماس با ما</h3>
+                            <form>
+                                <div class="row gtr-50">
+                                    <div class="col-6 col-12-mobilep">
+                                        <input type="text" name="name" id="name" placeholder="نام" />
+                                    </div>
+                                    <div class="col-6 col-12-mobilep">
+                                        <input type="email" name="email" id="email" placeholder="ایمیل" />
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="message" id="message" placeholder="پیام" rows="5"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <ul class="actions">
+                                            <li><input type="submit" class="button alt" value="ارسال پیام" /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- آیکون‌ها -->
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter"><span class="label">توییتر</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">فیس‌بوک</span></a></li>
+                    <li><a href="#" class="icon brands fa-github"><span class="label">گیت‌هاب</span></a></li>
+                    <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">لینکدین</span></a></li>
+                    <li><a href="#" class="icon brands fa-google-plus-g"><span class="label">گوگل پلاس</span></a></li>
+                </ul>
+
+                <!-- کپی‌رایت -->
+                <div class="copyright">
+                    <ul class="menu">
+                        <li>© بی‌عنوان. کلیه حقوق محفوظ است</li>
+                        <li>طراحی: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- اسکریپت‌ها -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.dropotron.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
