@@ -1,240 +1,259 @@
 <!DOCTYPE HTML>
-<!--
-	آرکانا توسط HTML5 UP
-	html5up.net | @ajlkn
-	آزاد برای استفاده شخصی و تجاری تحت مجوز CCA 3.0 (html5up.net/license)
--->
 <html lang="fa">
-	<head>
-		<title>ایردراپ یاب</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
-		<div id="page-wrapper">
+    <head>
+        <title>ایردراپ یاب</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <style>
+            /* استایل برای بنر */
+            .banner {
+                text-align: center;
+                padding: 20px 0;
+                background-color: #f4f4f4; /* پس‌زمینه روشن برای بنر */
+                direction: rtl; /* جهت متن برای فارسی */
+                width: 100%; /* عرض کامل */
+                box-sizing: border-box; /* جلوگیری از مشکلات margin/padding */
+            }
+            .banner img {
+                max-width: 100%; /* تصویر responsive */
+                height: auto;
+                display: block;
+                margin: 0 auto; /* وسط‌چین کردن تصویر */
+            }
+            .button--primary {
+                display: inline-block;
+                margin-top: 15px;
+                padding: 10px 20px;
+                background-color: #0078d7; /* رنگ دکمه */
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 1.2em;
+            }
+            .button--primary:hover {
+                background-color: #005bb5; /* رنگ دکمه هنگام هاور */
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+        <div id="page-wrapper">
 
-			<!-- Header -->
-				<div id="header">
+            <!-- Header -->
+            <div id="header">
+                <!-- لوگو -->
+                <h1><a href="index.html" id="logo"><em>ایردراپ یاب</em></a></h1>
 
-					<!-- لوگو -->
-						<h1><a href="index.html" id="logo"><em>ایردراپ یاب</em></a></h1>
+                <!-- منو -->
+                <nav id="nav">
+                    <ul>
+                        <li class="current"><a href="index.html">خانه</a></li>
+                        <li>
+                            <a href="#">منوی کشویی</a>
+                            <ul>
+                                <li><a href="#">لورم دلور</a></li>
+                                <li><a href="#">ماگنا فازلس</a></li>
+                                <li><a href="#">اتیم سد تمپوس</a></li>
+                                <li>
+                                    <a href="#">زیرمنو</a>
+                                    <ul>
+                                        <li><a href="#">لورم دلور</a></li>
+                                        <li><a href="#">فازلس ماگنا</a></li>
+                                        <li><a href="#">ماگنا فازلس</a></li>
+                                        <li><a href="#">اتیم نیسل</a></li>
+                                        <li><a href="#">ورئروس فیوگیت</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">ورئروس فیوگیت</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="left-sidebar.html">نوار کناری چپ</a></li>
+                        <li><a href="right-sidebar.html">نوار کناری راست</a></li>
+                        <li><a href="two-sidebar.html">دو نوار کناری</a></li>
+                        <li><a href="no-sidebar.html">درباره ایردراپ</a></li>
+                        <li><a href="ایردراپ های تایید شده.html">ایردراپ های تایید شده</a></li>
+                    </ul>
+                </nav>
+            </div>
 
-					<!-- منو -->
-						<nav id="nav">
-							<ul>
-								<li class="current"><a href="index.html">خانه</a></li>
-								<li>
-									<a href="#">منوی کشویی</a>
-									<ul>
-										<li><a href="#">لورم دلور</a></li>
-										<li><a href="#">ماگنا فازلس</a></li>
-										<li><a href="#">اتیم سد تمپوس</a></li>
-										<li>
-											<a href="#">زیرمنو</a>
-											<ul>
-												<li><a href="#">لورم دلور</a></li>
-												<li><a href="#">فازلس ماگنا</a></li>
-												<li><a href="#">ماگنا فازلس</a></li>
-												<li><a href="#">اتیم نیسل</a></li>
-												<li><a href="#">ورئروس فیوگیت</a></li>
-											</ul>
-										</li>
-										<li><a href="#">ورئروس فیوگیت</a></li>
-									</ul>
-								</li>
-								<li><a href="left-sidebar.html">نوار کناری چپ</a></li>
-								<li><a href="right-sidebar.html">نوار کناری راست</a></li>
-								<li><a href="two-sidebar.html">دو نوار کناری</a></li>
-								<li><a href="no-sidebar.html">درباره ایردراپ</a></li>
-								<!-- مورد جدید منو -->
-								<li><a href="ایردراپ های تایید شده.html">ایردراپ های تایید شده</a></li>
-							</ul>
-						</nav>
+            <!-- بنر -->
+            <section class="banner">
+                <img src="assets/images/ایردراپ_20250403_112626_0000.png" alt="بنر سایت">
+                <a href="#" class="button button--primary button--large">مشاهده محصولات</a>
+            </section>
 
-				</div>
+            <!-- بخش برجسته -->
+            <section class="wrapper style1">
+                <div class="container">
+                    <div class="row gtr-200">
+                        <section class="col-4 col-12-narrower">
+                            <div class="box highlight">
+                                <i class="icon solid major fa-paper-plane"></i>
+                                <h3>این مهم است</h3>
+                                <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                            </div>
+                        </section>
+                        <section class="col-4 col-12-narrower">
+                            <div class="box highlight">
+                                <i class="icon solid major fa-pencil-alt"></i>
+                                <h3>همچنین مهم</h3>
+                                <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                            </div>
+                        </section>
+                        <section class="col-4 col-12-narrower">
+                            <div class="box highlight">
+                                <i class="icon solid major fa-wrench"></i>
+                                <h3>احتمالاً مهم</h3>
+                                <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
 
-			<!-- بنر -->
-				<section class="banner">
-  <img src="assets/images/ایردراپ_20250403_112626_0000.png" alt="بنر سایت">
-  <a href="#" class="button button--primary button--large">مشاهده محصولات</a>
-				</section>
+            <!-- عنوان بزرگ -->
+            <section class="wrapper style2">
+                <div class="container">
+                    <header class="major">
+                        <h2>یک عنوان بسیار بزرگ که می‌توانید برای هر چیزی استفاده کنید</h2>
+                        <p>با یک زیرعنوان بسیار کوچک که درست زیر آن قرار دارد</p>
+                    </header>
+                </div>
+            </section>
 
-			<!-- بخش برجسته -->
-				<section class="wrapper style1">
-					<div class="container">
-						<div class="row gtr-200">
-							<section class="col-4 col-12-narrower">
-								<div class="box highlight">
-									<i class="icon solid major fa-paper-plane"></i>
-									<h3>این مهم است</h3>
-									<p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-								</div>
-							</section>
-							<section class="col-4 col-12-narrower">
-								<div class="box highlight">
-									<i class="icon solid major fa-pencil-alt"></i>
-									<h3>همچنین مهم</h3>
-									<p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-								</div>
-							</section>
-							<section class="col-4 col-12-narrower">
-								<div class="box highlight">
-									<i class="icon solid major fa-wrench"></i>
-									<h3>احتمالاً مهم</h3>
-									<p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-								</div>
-							</section>
-						</div>
-					</div>
-				</section>
+            <!-- پست‌ها -->
+            <section class="wrapper style1">
+                <div class="container">
+                    <div class="row">
+                        <section class="col-6 col-12-narrower">
+                            <div class="box post">
+                                <a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
+                                <div class="inner">
+                                    <h3>اولین مورد</h3>
+                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="col-6 col-12-narrower">
+                            <div class="box post">
+                                <a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
+                                <div class="inner">
+                                    <h3>دومین مورد</h3>
+                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col-6 col-12-narrower">
+                            <div class="box post">
+                                <a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
+                                <div class="inner">
+                                    <h3>سومین مورد</h3>
+                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="col-6 col-12-narrower">
+                            <div class="box post">
+                                <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
+                                <div class="inner">
+                                    <h3>چهارمین مورد</h3>
+                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
 
-			<!-- عنوان بزرگ -->
-				<section class="wrapper style2">
-					<div class="container">
-						<header class="major">
-							<h2>یک عنوان بسیار بزرگ که می‌توانید برای هر چیزی استفاده کنید</h2>
-							<p>با یک زیرعنوان بسیار کوچک که درست زیر آن قرار دارد</p>
-						</header>
-					</div>
-				</section>
+            <!-- فراخوان -->
+            <section id="cta" class="wrapper style3">
+                <div class="container">
+                    <header>
+                        <h2>آیا آماده‌اید که ماجراجویی خود را ادامه دهید؟</h2>
+                        <a href="#" class="button">سکه وارد کنید</a>
+                    </header>
+                </div>
+            </section>
 
-			<!-- پست‌ها -->
-				<section class="wrapper style1">
-					<div class="container">
-						<div class="row">
-							<section class="col-6 col-12-narrower">
-								<div class="box post">
-									<a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
-									<div class="inner">
-										<h3>اولین مورد</h3>
-										<p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-									</div>
-								</div>
-							</section>
-							<section class="col-6 col-12-narrower">
-								<div class="box post">
-									<a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
-									<div class="inner">
-										<h3>دومین مورد</h3>
-										<p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-									</div>
-								</div>
-							</section>
-						</div>
-						<div class="row">
-							<section class="col-6 col-12-narrower">
-								<div class="box post">
-									<a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
-									<div class="inner">
-										<h3>سومین مورد</h3>
-										<p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-									</div>
-								</div>
-							</section>
-							<section class="col-6 col-12-narrower">
-								<div class="box post">
-									<a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
-									<div class="inner">
-										<h3>چهارمین مورد</h3>
-										<p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</section>
+            <!-- Footer -->
+            <div id="footer">
+                <div class="container">
+                    <div class="row">
+                        <section class="col-3 col-6-narrower col-12-mobilep">
+                            <h3>لینک‌های مطالب</h3>
+                            <ul class="links">
+                                <li><a href="#">متیس ات کویس روترو</a></li>
+                                <li><a href="#">سوسپندیسه امیت واریوس</a></li>
+                                <li><a href="#">سد ات دابیپس کویس</a></li>
+                                <li><a href="#">روترو آکومسان دولور</a></li>
+                                <li><a href="#">متیس روترو آکومسان</a></li>
+                                <li><a href="#">سوسپندیسه واریوس نیب</a></li>
+                                <li><a href="#">سد ات دابیپس متیس</a></li>
+                            </ul>
+                        </section>
+                        <section class="col-3 col-6-narrower col-12-mobilep">
+                            <h3>لینک‌های بیشتر</h3>
+                            <ul class="links">
+                                <li><a href="#">دویس نکوئ نیسی دابیپس</a></li>
+                                <li><a href="#">سد ات دابیپس کویس</a></li>
+                                <li><a href="#">روترو آکومسان سد</a></li>
+                                <li><a href="#">متیس ات سد آکومسان</a></li>
+                                <li><a href="#">دویس نکوئ نیسی سد</a></li>
+                                <li><a href="#">سد ات دابیپس کویس</a></li>
+                                <li><a href="#">روترو امیت واریوس</a></li>
+                            </ul>
+                        </section>
+                        <section class="col-6 col-12-narrower">
+                            <h3>تماس با ما</h3>
+                            <form>
+                                <div class="row gtr-50">
+                                    <div class="col-6 col-12-mobilep">
+                                        <input type="text" name="name" id="name" placeholder="نام" />
+                                    </div>
+                                    <div class="col-6 col-12-mobilep">
+                                        <input type="email" name="email" id="email" placeholder="ایمیل" />
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="message" id="message" placeholder="پیام" rows="5"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <ul class="actions">
+                                            <li><input type="submit" class="button alt" value="ارسال پیام" /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
 
-			<!-- فراخوان -->
-				<section id="cta" class="wrapper style3">
-					<div class="container">
-						<header>
-							<h2>آیا آماده‌اید که ماجراجویی خود را ادامه دهید؟</h2>
-							<a href="#" class="button">سکه وارد کنید</a>
-						</header>
-					</div>
-				</section>
+                <!-- آیکون‌ها -->
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-twitter"><span class="label">توییتر</span></a></li>
+                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">فیس‌بوک</span></a></li>
+                    <li><a href="#" class="icon brands fa-github"><span class="label">گیت‌هاب</span></a></li>
+                    <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">لینکدین</span></a></li>
+                    <li><a href="#" class="icon brands fa-google-plus-g"><span class="label">گوگل پلاس</span></a></li>
+                </ul>
 
-			<!-- Footer -->
-				<div id="footer">
-					<div class="container">
-						<div class="row">
-							<section class="col-3 col-6-narrower col-12-mobilep">
-								<h3>لینک‌های مطالب</h3>
-								<ul class="links">
-									<li><a href="#">متیس ات کویس روترو</a></li>
-									<li><a href="#">سوسپندیسه امیت واریوس</a></li>
-									<li><a href="#">سد ات دابیپس کویس</a></li>
-									<li><a href="#">روترو آکومسان دولور</a></li>
-									<li><a href="#">متیس روترو آکومسان</a></li>
-									<li><a href="#">سوسپندیسه واریوس نیب</a></li>
-									<li><a href="#">سد ات دابیپس متیس</a></li>
-								</ul>
-							</section>
-							<section class="col-3 col-6-narrower col-12-mobilep">
-								<h3>لینک‌های بیشتر</h3>
-								<ul class="links">
-									<li><a href="#">دویس نکوئ نیسی دابیپس</a></li>
-									<li><a href="#">سد ات دابیپس کویس</a></li>
-									<li><a href="#">روترو آکومسان سد</a></li>
-									<li><a href="#">متیس ات سد آکومسان</a></li>
-									<li><a href="#">دویس نکوئ نیسی سد</a></li>
-									<li><a href="#">سد ات دابیپس کویس</a></li>
-									<li><a href="#">روترو امیت واریوس</a></li>
-								</ul>
-							</section>
-							<section class="col-6 col-12-narrower">
-								<h3>تماس با ما</h3>
-								<form>
-									<div class="row gtr-50">
-										<div class="col-6 col-12-mobilep">
-											<input type="text" name="name" id="name" placeholder="نام" />
-										</div>
-										<div class="col-6 col-12-mobilep">
-											<input type="email" name="email" id="email" placeholder="ایمیل" />
-										</div>
-										<div class="col-12">
-											<textarea name="message" id="message" placeholder="پیام" rows="5"></textarea>
-										</div>
-										<div class="col-12">
-											<ul class="actions">
-												<li><input type="submit" class="button alt" value="ارسال پیام" /></li>
-											</ul>
-										</div>
-									</div>
-								</form>
-							</section>
-						</div>
-					</div>
+                <!-- کپی‌رایت -->
+                <div class="copyright">
+                    <ul class="menu">
+                        <li>© بی‌عنوان. کلیه حقوق محفوظ است</li>
+                        <li>طراحی: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-					<!-- آیکون‌ها -->
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">توییتر</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">فیس‌بوک</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">گیت‌هاب</span></a></li>
-							<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">لینکدین</span></a></li>
-							<li><a href="#" class="icon brands fa-google-plus-g"><span class="label">گوگل پلاس</span></a></li>
-						</ul>
-
-					<!-- کپی‌رایت -->
-						<div class="copyright">
-							<ul class="menu">
-								<li>&copy; بی‌عنوان. کلیه حقوق محفوظ است</li>
-								<li>طراحی: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-
-				</div>
-
-		</div>
-
-		<!-- اسکریپت‌ها -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+        <!-- اسکریپت‌ها -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.dropotron.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
