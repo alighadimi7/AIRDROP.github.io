@@ -16,9 +16,10 @@
                 direction: rtl; /* جهت متن برای فارسی */
                 width: 100%; /* عرض کامل */
                 box-sizing: border-box; /* جلوگیری از مشکلات margin/padding */
+                margin: 0; /* حذف margin برای جلوگیری از فضای خالی */
             }
             .banner img {
-                max-width: 100%; /* تصویر responsive */
+                width: 100%; /* عرض تصویر 100% برای پر کردن کامل */
                 height: auto;
                 display: block;
                 margin: 0 auto; /* وسط‌چین کردن تصویر */
@@ -89,7 +90,7 @@
             #header h1 a {
                 font-family: 'Shabnam', sans-serif !important; /* فونت Shabnam */
                 color: #FFD700 !important; /* رنگ زرد */
-                font-size: 3.5em !important; /* اندازه بزرگ‌تر */
+                font-size: 4.5em !important; /* اندازه بزرگ‌تر برای درشت‌تر شدن */
                 line-height: 1.2; /* تنظیم فاصله خطوط برای خوانایی بهتر */
                 display: inline-block; /* جلوگیری از مشکلات نمایش */
                 background: none !important; /* حذف پس‌زمینه احتمالی */
@@ -98,13 +99,18 @@
                 text-decoration: none; /* حذف زیرخط احتمالی */
             }
             #header h1 {
-                background: #FFF9C4 !important; /* کادر رنگی خوشگل (زرد کم‌رنگ) */
-                border: 2px solid #FFD700 !important; /* کادر زرد */
-                border-radius: 10px; /* گوشه‌های گرد */
+                background: none !important; /* حذف کادر زرد */
+                border: none !important; /* حذف کادر زرد */
+                border-radius: 0; /* حذف گوشه‌های گرد */
                 padding: 15px 20px; /* فاصله داخلی */
                 margin: 10px auto; /* فاصله خارجی و وسط‌چین */
                 text-align: center; /* وسط‌چین کردن هدر */
                 max-width: 400px; /* عرض کادر */
+            }
+
+            /* تغییر رنگ پس‌زمینه به رنگ برگ گل */
+            #page-wrapper {
+                background-color: #A9CBA4 !important; /* رنگ برگ گل */
             }
 
             /* استایل‌های responsive برای موبایل */
@@ -125,21 +131,28 @@
 
                 /* تنظیم هدر در موبایل */
                 #header h1 a {
-                    font-size: 2em !important; /* اندازه فونت کوچکتر در موبایل */
+                    font-size: 3em !important; /* اندازه فونت کوچکتر در موبایل */
                 }
                 #header h1 {
-                    max-width: 90%; /* عرض کادر در موبایل */
+                    max-width: 100%; /* عرض کادر در موبایل */
                     padding: 10px 15px; /* فاصله داخلی کمتر */
                 }
 
                 /* تنظیم آیکون‌های شبکه‌های اجتماعی در موبایل */
                 .icons li {
-                    margin: 0 10px; /* فاصله کمتر در موبایل */
+                    margin: 0 10px; /*距離 کمتر در موبایل */
                 }
 
                 /* تنظیم بنر در موبایل */
+                .banner {
+                    padding: 10px 0; /* کاهش padding در موبایل */
+                    margin: 0; /* حذف margin */
+                    width: 100%; /* عرض کامل */
+                }
                 .banner img {
-                    max-width: 90%; /* تصویر بنر کمی کوچکتر در موبایل */
+                    width: 100%; /* عرض تصویر 100% */
+                    max-width: 100%; /* حذف محدودیت max-width */
+                    height: auto;
                 }
 
                 /* تنظیم بخش‌های دیگر */
