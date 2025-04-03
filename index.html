@@ -5,7 +5,15 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
+        <!-- اضافه کردن فونت IranNastaliq -->
         <style>
+            @font-face {
+                font-family: 'IranNastaliq';
+                src: url('https://cdn.fontcdn.ir/Font/Persian/Nastaliq/IranNastaliq.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+            }
+
             /* استایل برای بنر */
             .banner {
                 text-align: center;
@@ -33,6 +41,20 @@
             }
             .button--primary:hover {
                 background-color: #005bb5; /* رنگ دکمه هنگام هاور */
+            }
+
+            /* راست‌چین کردن متن‌ها */
+            .wrapper, .box, .inner, header.major, #footer, .links, .copyright, .container, form, .actions {
+                text-align: right !important; /* راست‌چین کردن متن‌ها */
+                direction: rtl !important; /* جهت متن برای فارسی */
+            }
+
+            /* استایل برای هدر (ایردراپ یاب) */
+            #header h1 a {
+                font-family: 'IranNastaliq', sans-serif !important; /* فونت IranNastaliq */
+                color: #FFD700 !important; /* رنگ زرد */
+                font-size: 3em !important; /* اندازه بزرگ‌تر */
+                line-height: 1.2; /* تنظیم فاصله خطوط برای خوانایی بهتر */
             }
         </style>
     </head>
@@ -250,10 +272,4 @@
 
         <!-- اسکریپت‌ها -->
         <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.dropotron.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
-    </body>
-</html>
+        <script src="assets/js/jquery.dropotron
