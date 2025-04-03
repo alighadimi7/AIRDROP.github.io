@@ -5,8 +5,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
-        <!-- اضافه کردن فونت Vazir از Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@400;700&display=swap" rel="stylesheet">
+        <!-- اضافه کردن فونت Shabnam از Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Shabnam:wght@400;700&display=swap" rel="stylesheet">
         <style>
             /* استایل برای بنر */
             .banner {
@@ -87,9 +87,9 @@
 
             /* استایل برای هدر (ایردراپ یاب) */
             #header h1 a {
-                font-family: 'Vazir', sans-serif !important; /* فونت Vazir */
+                font-family: 'Shabnam', sans-serif !important; /* فونت Shabnam */
                 color: #FFD700 !important; /* رنگ زرد */
-                font-size: 2.5em !important; /* اندازه بزرگ‌تر */
+                font-size: 3.5em !important; /* اندازه بزرگ‌تر */
                 line-height: 1.2; /* تنظیم فاصله خطوط برای خوانایی بهتر */
                 display: inline-block; /* جلوگیری از مشکلات نمایش */
                 background: none !important; /* حذف پس‌زمینه احتمالی */
@@ -98,11 +98,54 @@
                 text-decoration: none; /* حذف زیرخط احتمالی */
             }
             #header h1 {
-                background: none !important; /* حذف کادر سفید */
-                border: none !important; /* حذف کادر احتمالی */
-                padding: 10px 0; /* فاصله عمودی */
-                margin: 0; /* حذف حاشیه‌های اضافی */
+                background: #FFF9C4 !important; /* کادر رنگی خوشگل (زرد کم‌رنگ) */
+                border: 2px solid #FFD700 !important; /* کادر زرد */
+                border-radius: 10px; /* گوشه‌های گرد */
+                padding: 15px 20px; /* فاصله داخلی */
+                margin: 10px auto; /* فاصله خارجی و وسط‌چین */
                 text-align: center; /* وسط‌چین کردن هدر */
+                max-width: 400px; /* عرض کادر */
+            }
+
+            /* استایل‌های responsive برای موبایل */
+            @media screen and (max-width: 768px) {
+                /* تنظیم منو در موبایل */
+                #nav ul {
+                    flex-direction: column; /* چیدمان عمودی در موبایل */
+                    text-align: right;
+                }
+                #nav ul li {
+                    display: block;
+                    margin: 10px 0; /* فاصله عمودی بین آیتم‌ها */
+                }
+                #nav ul ul {
+                    position: static; /* جلوگیری از مشکلات موقعیت در موبایل */
+                    background: #444; /* پس‌زمینه کمی روشن‌تر */
+                }
+
+                /* تنظیم هدر در موبایل */
+                #header h1 a {
+                    font-size: 2em !important; /* اندازه فونت کوچکتر در موبایل */
+                }
+                #header h1 {
+                    max-width: 90%; /* عرض کادر در موبایل */
+                    padding: 10px 15px; /* فاصله داخلی کمتر */
+                }
+
+                /* تنظیم آیکون‌های شبکه‌های اجتماعی در موبایل */
+                .icons li {
+                    margin: 0 10px; /* فاصله کمتر در موبایل */
+                }
+
+                /* تنظیم بنر در موبایل */
+                .banner img {
+                    max-width: 90%; /* تصویر بنر کمی کوچکتر در موبایل */
+                }
+
+                /* تنظیم بخش‌های دیگر */
+                .box.highlight, .box.post {
+                    text-align: right; /* راست‌چین کردن محتوا */
+                }
             }
         </style>
     </head>
