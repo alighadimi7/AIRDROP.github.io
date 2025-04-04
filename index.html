@@ -8,155 +8,218 @@
   <!-- فایل اصلی استایل -->
   <link rel="stylesheet" href="assets/css/main.css" />
 
-  <!-- فونت شبیه شبنم از CDN معتبر -->
+  <!-- فونت شبنم -->
   <link href="https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam.css" rel="stylesheet" type="text/css" />
 
   <!-- آیکون‌ها -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html {
-      width: 100%; height: 100%; font-family: 'Shabnam', sans-serif;
-      direction: rtl; background: #0d0d0d url('assets/images/stars-bg.jpg') repeat top center;
-      background-size: cover; color: #fff;
+    * {
+      margin: 0; 
+      padding: 0;
+      box-sizing: border-box;
     }
-    #page-wrapper { min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+    body {
+      font-family: 'Shabnam', sans-serif;
+      background: #0d0d0d url('assets/images/stars-bg.jpg') repeat top center;
+      background-size: cover;
+      color: #fff;
+    }
 
-    /* هدر */
     #header {
-      background: #111; padding: 1rem 2rem; text-align: right;
+      background: #111;
+      padding: 1rem;
     }
-    #header h1 { margin: 0; font-size: 2.5rem; }
-    #header h1 a { color: #FFD700; text-decoration: none; }
+    #header h1 a {
+      color: #FFD700;
+      text-decoration: none;
+      font-size: 2rem;
+    }
 
-    /* منو */
-    #nav { margin-top: 1rem; }
     #nav ul {
-      list-style: none; display: flex; flex-wrap: nowrap;
-      justify-content: flex-end; overflow-x: auto; margin: 0; padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      list-style: none;
+      margin-top: 1rem;
     }
     #nav ul li {
-      position: relative; margin-left: 1rem; white-space: nowrap;
+      position: relative;
+      margin-left: 1rem;
     }
     #nav ul li a {
-      color: #fff; text-decoration: none; padding: 0.5rem 0.8rem;
-      transition: background 0.3s;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem;
     }
-    #nav ul li a:hover {
-      background: #222; border-radius: 4px;
+    #nav ul li:hover > ul {
+      display: block;
     }
     #nav ul li ul {
-      display: none; position: absolute; right: 0; top: 2.5rem;
-      background: #222; list-style: none; padding: 0.5rem 1rem; z-index: 999; border-radius: 4px;
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 2.5rem;
+      background: #222;
+      padding: 0.5rem;
+      border-radius: 4px;
     }
-    #nav ul li:hover > ul { display: block; }
-    #nav ul li ul li { margin: 0; white-space: nowrap; }
     #nav ul li ul li a {
-      color: #fff; padding: 0.4rem 0.8rem; display: block;
-    }
-    #nav ul li ul li a:hover {
-      background: #333; border-radius: 4px;
+      display: block;
+      padding: 0.4rem;
     }
 
     .banner {
-      text-align: center; padding: 2rem 1rem;
+      text-align: center;
+      padding: 2rem 1rem;
     }
     .banner img {
-      max-width: 100%; height: auto; display: block; margin: 0 auto;
+      max-width: 100%;
+      height: auto;
     }
     .banner-icons {
-      margin-top: 1.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
     }
     .banner-icons a {
-      width: 48px; height: 48px; display: inline-flex; align-items: center;
-      justify-content: center; font-size: 24px; color: #fff; background: #222;
-      border-radius: 8px; transition: transform 0.3s ease;
+      width: 48px;
+      height: 48px;
+      background: #222;
+      color: #fff;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
     }
     .banner-icons a img {
-      width: 32px; height: 32px; object-fit: contain;
+      width: 32px;
+      height: 32px;
     }
-    .banner-icons a:hover { transform: scale(1.1); }
 
     .wrapper.style2 {
-      background: rgba(0,0,0,0.5); border-radius: 12px; padding: 2rem;
-      margin: 2rem auto; max-width: 900px; text-align: center;
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 900px;
     }
     .wrapper.style2 h2 {
-      font-size: 1.8rem; margin-bottom: 1rem; color: #FFD700;
+      color: #FFD700;
+      margin-bottom: 1rem;
     }
-    .wrapper.style2 p { line-height: 1.8; }
 
     .wrapper.style3 {
-      background: linear-gradient(145deg, #1e90ff, #00bfff);
-      text-align: center; padding: 2rem 1rem; margin-top: 2rem;
-      border-radius: 12px; box-shadow: 0 0 12px #00bfff;
+      background: linear-gradient(to right, #0078d7, #00c6ff);
+      text-align: center;
+      padding: 2rem;
+      margin: 2rem;
+      border-radius: 1rem;
     }
     .wrapper.style3 h2 {
-      color: #fff; margin-bottom: 1rem; text-shadow: 0 0 5px #000;
+      color: white;
+      margin-bottom: 1rem;
     }
     .wrapper.style3 .button {
-      display: inline-block; background: #fff; color: #1e90ff;
-      padding: 0.8rem 1.5rem; border-radius: 25px; font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .wrapper.style3 .button:hover {
-      background: #e0f7ff; color: #0078d7;
+      background: #fff;
+      color: #0078d7;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
     }
 
-    /* فوتر */
-    #footer {
-      background: #111; color: #ccc; padding: 3rem 1rem;
-    }
-    #footer .container {
-      max-width: 1000px; margin: 0 auto;
-    }
     #footer .row {
-      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
     }
-    #footer section {
-      flex: 1 1 45%; min-width: 250px;
+    .icons {
+      display: flex;
+      gap: 1rem;
     }
-    #footer h3 { margin-bottom: 1rem; color: #ffd700; }
-    .links, .icons {
-      list-style: none; padding: 0; margin: 0;
-    }
-    .links li { margin-bottom: 0.5rem; }
-    .links li a {
-      color: #fff; text-decoration: none;
-    }
-    .links li a:hover { text-decoration: underline; }
-    .icons { display: flex; gap: 1rem; }
-    .icons li a {
-      font-size: 1.8rem; color: #999; transition: color 0.3s ease;
-    }
-    .icons li a:hover { color: #fff; }
     .copyright {
-      text-align: center; margin-top: 2rem; color: #999;
-    }
-
-    form { margin-top: 3rem; }
-    input[type="text"], input[type="email"], textarea {
-      width: 100%; margin-bottom: 1rem; padding: 0.5rem;
-      border: 1px solid #444; border-radius: 4px; background: #222; color: #fff;
-    }
-    .actions { display: flex; justify-content: flex-end; }
-    .actions .button.alt {
-      background: #555; color: #fff; padding: 0.6rem 1.2rem;
-      border-radius: 4px; transition: background 0.3s ease;
-    }
-    .actions .button.alt:hover { background: #777; }
-
-    @media screen and (max-width: 768px) {
-      #header h1 a { font-size: 2rem; }
-      .banner-icons { gap: 1rem; }
-      .banner-icons a { width: 40px; height: 40px; font-size: 20px; }
-      .banner-icons a img { width: 24px; height: 24px; }
-      .wrapper.style2 { margin: 1rem; padding: 1.5rem; }
-      .wrapper.style3 { padding: 1.5rem 1rem; }
-      #footer .row { flex-direction: column; }
+      text-align: center;
+      margin-top: 2rem;
+      color: #999;
     }
   </style>
 </head>
 <body>
-<!-- ادامهٔ بدنه کد تغییر نکرده -->
+  <div id="page-wrapper">
+
+    <div id="header">
+      <h1><a href="index.html">ایردراپ یاب</a></h1>
+      <nav id="nav">
+        <ul>
+          <li><a href="#">خانه</a></li>
+          <li>
+            <a href="#">منوی کشویی</a>
+            <ul>
+              <li><a href="#">آیتم ۱</a></li>
+              <li><a href="#">آیتم ۲</a></li>
+              <li><a href="#">آیتم ۳</a></li>
+            </ul>
+          </li>
+          <li><a href="#">نوار چپ</a></li>
+          <li><a href="#">نوار راست</a></li>
+          <li><a href="#">درباره</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <section class="banner">
+      <img src="assets/images/ایردراپ_20250403_112626_0000.png" alt="بنر">
+      <div class="banner-icons">
+        <a href="#" class="fab fa-telegram"></a>
+        <a href="#"><img src="https://cryptologos.cc/logos/polygon-matic-logo.png" alt="تست نت"></a>
+        <a href="#"><img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="زنجیره‌ای"></a>
+      </div>
+    </section>
+
+    <section class="wrapper style2">
+      <h2>مرجع ایردراپ‌های رایگان</h2>
+      <p>اینجا معتبرترین ایردراپ‌ها را معرفی می‌کنیم.</p>
+    </section>
+
+    <section class="wrapper style3">
+      <h2>شروع ماجرا از اینجاست</h2>
+      <a href="#" class="button">شروع کن</a>
+    </section>
+
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <section>
+            <h3>شبکه‌های اجتماعی</h3>
+            <ul class="icons">
+              <li><a href="#" class="fab fa-instagram"></a></li>
+              <li><a href="#" class="fab fa-telegram"></a></li>
+              <li><a href="#" class="fab fa-discord"></a></li>
+            </ul>
+          </section>
+          <section>
+            <h3>ارسال پیام</h3>
+            <form>
+              <input type="text" placeholder="نام">
+              <input type="email" placeholder="ایمیل">
+              <textarea rows="3" placeholder="پیام شما"></textarea>
+              <input type="submit" class="button" value="ارسال">
+            </form>
+          </section>
+        </div>
+        <div class="copyright">
+          کلیه حقوق محفوظ است.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
