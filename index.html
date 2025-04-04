@@ -1,204 +1,238 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE HTML>
+<html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ایردراپ یاب</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Shabnam:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* ... (استایل‌های CSS شما) ... */
+        /* حذف رنگ سبز و اضافه کردن تم تیره با ستاره */
+        #page-wrapper {
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+                        radial-gradient(circle at center, #1a1a2e 0%, #0a0a0f 100%);
+            background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-blend-mode: overlay;
+            background-size: cover;
+        }
+
+        /* حذف بخش مشاهده محصولات و اضافه کردن آیکون‌های جدید */
+        .banner {
+            text-align: center;
+            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+            direction: rtl;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .banner .icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .banner .icons a {
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .banner .icons a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* حذف بخش‌های مهم و اضافه کردن توضیحات جدید */
+        .wrapper.style2 {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .wrapper.style2 header.major h2 {
+            color: #00ff9d;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .wrapper.style2 header.major p {
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* حذف سکه وارد کنید و اضافه کردن شروع ماجرا */
+        #cta {
+            background: linear-gradient(45deg, #00ff9d, #00ffff);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        #cta header {
+            text-align: center;
+        }
+
+        #cta h2 {
+            color: #000000;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #cta .button {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            border: 2px solid #00ff9d;
+            padding: 15px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        #cta .button:hover {
+            background: rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* حذف لینک‌های قدیمی و اضافه کردن شبکه‌های اجتماعی */
+        #footer .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+        }
+
+        #footer .links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #footer .links li {
+            margin: 10px 0;
+        }
+
+        #footer .links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        #footer .links a:hover {
+            opacity: 0.8;
+        }
+
+        /* تغییر کپی‌رایت */
+        .copyright {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .copyright li {
+            color: #ffffff;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body class="is-preload">
     <div id="page-wrapper">
-        <header id="header">
+        <!-- Header -->
+        <div id="header">
             <h1><a href="index.html" id="logo"><em>ایردراپ یاب</em></a></h1>
             <nav id="nav">
                 <ul>
                     <li class="current"><a href="index.html">خانه</a></li>
-                    <li>
-                        <a href="#">منوی کشویی</a>
-                        <ul>
-                            <li><a href="#">لورم دلور</a></li>
-                            <li><a href="#">ماگنا فازلس</a></li>
-                            <li><a href="#">اتیم سد تمپوس</a></li>
-                            <li>
-                                <a href="#">زیرمنو</a>
-                                <ul>
-                                    <li><a href="#">لورم دلور</a></li>
-                                    <li><a href="#">فازلس ماگنا</a></li>
-                                    <li><a href="#">ماگنا فازلس</a></li>
-                                    <li><a href="#">اتیم نیسل</a></li>
-                                    <li><a href="#">ورئروس فیوگیت</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">ورئروس فیوگیت</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="left-sidebar.html">نوار کناری چپ</a></li>
-                    <li><a href="right-sidebar.html">نوار کناری راست</a></li>
-                    <li><a href="two-sidebar.html">دو نوار کناری</a></li>
-                    <li><a href="no-sidebar.html">درباره ایردراپ</a></li>
-                    <li><a href="ایردراپ های تایید شده.html">ایردراپ های تایید شده</a></li>
+                    <li><a href="x.html">تست نت</a></li>
+                    <li><a href="x.html">تلگرام</a></li>
+                    <li><a href="on-chain.html">ایردراپ زنجیره‌ای</a></li>
                 </ul>
             </nav>
-        </header>
+        </div>
 
-        <main>
-            <section class="wrapper style1">
-                <div class="container">
-                    <div class="row gtr-200">
-                        <article class="col-4 col-12-narrower">
-                            <div class="box highlight">
-                                <a href="x.html" class="icon brands fa-telegram"><span class="label">تلگرام</span></a>
-                                <h3>تلگرام</h3>
-                                <p>آخرین اخبار و اطلاعیه‌ها را در کانال تلگرام ما دنبال کنید.</p>
-                            </div>
-                        </article>
-                        <article class="col-4 col-12-narrower">
-                            <div class="box highlight">
-                                <a href="testnet.html" class="icon solid fa-flask"><span class="label">تست نت</span></a>
-                                <h3>تست نت</h3>
-                                <p>در تست نت پروژه‌های جدید شرکت کنید و جوایز دریافت کنید.</p>
-                            </div>
-                        </article>
-                        <article class="col-4 col-12-narrower">
-                            <div class="box highlight">
-                                <a href="on-chain.html" class="icon solid fa-chain"><span class="label">ایردراپ آن چین</span></a>
-                                <h3>ایردراپ آن چین</h3>
-                                <p>ایردراپ‌های زنجیره‌ای را از دست ندهید.</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
+        <!-- بنر -->
+        <section class="banner">
+            <div class="icons">
+                <a href="testnet.html" title="تست نت">
+                    <i class="icon solid major fa-network"></i>
+                </a>
+                <a href="x.html" title="تلگرام">
+                    <i class="icon brands fa-telegram"></i>
+                </a>
+                <a href="on-chain.html" title="ایردراپ زنجیره‌ای">
+                    <i class="icon solid major fa-link"></i>
+                </a>
+            </div>
+        </section>
 
-            <section class="wrapper style2">
-                <div class="container">
-                    <header class="major">
-                        <h2>به دنیای ایردراپ‌ها خوش آمدید!</h2>
-                        <p>در اینجا می‌توانید جدیدترین و معتبرترین ایردراپ‌های دنیای کریپتو را پیدا کنید.</p>
-                    </header>
-                </div>
-            </section>
+        <!-- توضیحات جدید -->
+        <section class="wrapper style2">
+            <div class="container">
+                <header class="major">
+                    <h2>به ایردراپ یاب خوش آمدید</h2>
+                    <p>پلتفرم جامع مدیریت و پیگیری ایردراپ‌های زنجیره‌ای و تست نت، با قابلیت‌های پیشرفته و رابط کاربری ساده و کاربردی.</p>
+                </header>
+            </div>
+        </section>
 
-            <section class="wrapper style1">
-                <div class="container">
-                    <div class="row">
-                        <article class="col-6 col-12-narrower">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>ایردراپ اول</h3>
-                                    <p>توضیحات مربوط به ایردراپ اول.</p>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="col-6 col-12-narrower">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>ایردراپ دوم</h3>
-                                    <p>توضیحات مربوط به ایردراپ دوم.</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="row">
-                        <article class="col-6 col-12-narrower">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>ایردراپ سوم</h3>
-                                    <p>توضیحات مربوط به ایردراپ سوم.</p>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="col-6 col-12-narrower">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>ایردراپ چهارم</h3>
-                                    <p>توضیحات مربوط به ایردراپ چهارم.</p>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
+        <!-- شروع ماجرا -->
+        <section id="cta" class="wrapper style3">
+            <div class="container">
+                <header>
+                    <h2>شروع ماجرا</h2>
+                    <a href="hey.html" class="button">شروع کنید</a>
+                </header>
+            </div>
+        </section>
 
-            <section id="cta" class="wrapper style3">
-                <div class="container">
-                    <header>
-                        <h2>آماده شروع ماجراجویی هستید؟</h2>
-                        <a href="hey.html" class="button">شروع ماجرا</a>
-                    </header>
-                </div>
-            </section>
-        </main>
-
-        <footer id="footer">
+        <!-- Footer -->
+        <div id="footer">
             <div class="container">
                 <div class="row">
-                    <section class="col-3 col-6-narrower col-12-mobilep">
-                        <h3>موارد مرتبط</h3>
-                        <ul class="links">
-                            <li><a href="#">لینک مرتبط 1</a></li>
-                            <li><a href="#">لینک مرتبط 2</a></li>
-                            <li><a href="#">لینک مرتبط 3</a></li>
-                            <li><a href="#">لینک مرتبط 4</a></li>
-                            <li><a href="#">لینک مرتبط 5</a></li>
-                            <li><a href="#">لینک مرتبط 6</a></li>
-                            <li><a href="#">لینک مرتبط 7</a></li>
-                        </ul>
-                    </section>
-                    <section class="col-3 col-6-narrower col-12-mobilep">
+                    <section class="col-12">
                         <h3>شبکه‌های اجتماعی ما</h3>
-                        <ul class="icons">
-                            <li><a href="#" class="icon brands fa-instagram"><span class="label">اینستاگرام</span></a></li>
-                            <li><a href="#" class="icon brands fa-telegram"><span class="label">تلگرام</span></a></li>
-                            <li><a href="#" class="icon brands fa-discord"><span class="label">دیسکورد</span></a></li>
-                            <li><a href="#" class="icon brands fa-twitter"><span class="label">ایکس (توییتر)</span></a></li>
-                            <li><a href="#" class="icon brands fa-github"><span class="label">گیت‌هاب</span></a></li>
-                        </ul>
-                    </section>
-                    <section class="col-6 col-12-narrower">
-                        <h3>تماس با ما</h3>
-                        <form>
-                            <div class="row gtr-50">
-                                <div class="col-6 col-12-mobilep">
-                                    <input type="text" name="name" id="name" placeholder="نام" />
-                                </div>
-                                <div class="col-6 col-12-mobilep">
-                                    <input type="email" name="email" id="email" placeholder="ایمیل" />
-                                </div>
-                                <div class="col-12">
-                                    <textarea name="message" id="message" placeholder="پیام" rows="5"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <ul class="actions">
-                                        <li><input type="submit" class="button alt" value="ارسال پیام" /></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </form>
+                        <div class="links">
+                            <ul>
+                                <li><a href="#"><i class="icon brands fa-instagram"></i> اینستاگرام</a></li>
+                                <li><a href="x.html"><i class="icon brands fa-telegram"></i> تلگرام</a></li>
+                                <li><a href="#"><i class="icon brands fa-discord"></i> دیسکورد</a></li>
+                                <li><a href="#"><i class="icon brands fa-x"></i> X</a></li>
+                                <li><a href="#"><i class="icon brands fa-github"></i> گیت‌هاب</a></li>
+                            </ul>
+                        </div>
                     </section>
                 </div>
             </div>
 
+            <!-- کپی‌رایت -->
             <div class="copyright">
                 <ul class="menu">
-                    <li>© کلیه حقوق این سایت برای ایردراپ یاب محفوظ است</li>
+                    <li>© 2025 ایردراپ یاب. کلیه حقوق محفوظ است</li>
                 </ul>
             </div>
-        </footer>
+        </div>
     </div>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
