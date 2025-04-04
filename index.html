@@ -1,385 +1,206 @@
 <!DOCTYPE HTML>
 <html lang="fa">
-    <head>
-        <title>ایردراپ یاب</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <!-- اضافه کردن فونت Shabnam از Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Shabnam:wght@400;700&display=swap" rel="stylesheet">
-        <style>
-            /* استایل برای بنر */
-            .banner {
-                text-align: center;
-                padding: 20px 0;
-                background-color: #f4f4f4; /* پس‌زمینه روشن برای بنر */
-                direction: rtl; /* جهت متن برای فارسی */
-                width: 100%; /* عرض کامل */
-                box-sizing: border-box; /* جلوگیری از مشکلات margin/padding */
-                margin: 0; /* حذف margin برای جلوگیری از فضای خالی */
-            }
-            .banner img {
-                width: 100%; /* عرض تصویر 100% برای پر کردن کامل */
-                height: auto;
-                display: block;
-                margin: 0 auto; /* وسط‌چین کردن تصویر */
-            }
-            .button--primary {
-                display: inline-block;
-                margin-top: 15px;
-                padding: 10px 20px;
-                background-color: #0078d7; /* رنگ دکمه */
-                color: white;
-                text-decoration: none;
-                border-radius: 5px;
-                font-size: 1.2em;
-            }
-            .button--primary:hover {
-                background-color: #005bb5; /* رنگ دکمه هنگام هاور */
-            }
+<head>
+    <title>ایردراپ یاب</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: 'Shabnam', sans-serif;
+            background: #0d0d0d url('assets/images/stars-bg.jpg') repeat top center;
+            background-size: cover;
+            color: #fff;
+        }
+        .banner {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .banner-icons a {
+            display: inline-block;
+            margin: 0 20px;
+            font-size: 3em;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        .banner-icons a:hover {
+            transform: scale(1.2);
+        }
+        #header h1 a {
+            font-size: 4em;
+            color: #FFD700;
+            text-decoration: none;
+        }
+        header.major {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+        .wrapper.style2 {
+            background: rgba(0,0,0,0.5);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem auto;
+        }
+        .icon-colored {
+            color: #1da1f2;
+        }
+        #footer {
+            background: #111;
+            color: #ccc;
+            padding: 3rem 1rem;
+        }
+        .links li, .icons li {
+            list-style: none;
+        }
+        .icons li a {
+            color: #ccc;
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+        .icons li a:hover {
+            color: #fff;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            color: #999;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="is-preload">
+    <div id="page-wrapper">
 
-            /* راست‌چین کردن متن‌ها */
-            .wrapper, .box, .inner, header.major, #footer, .links, .copyright, .container, form, .actions {
-                text-align: right !important; /* راست‌چین کردن متن‌ها */
-                direction: rtl !important; /* جهت متن برای فارسی */
-            }
-
-            /* استایل برای منو */
-            #nav {
-                display: block !important; /* مطمئن شدن از نمایش منو */
-                text-align: right !important; /* راست‌چین کردن منو */
-                direction: rtl !important; /* جهت منو برای فارسی */
-            }
-            #nav ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                display: flex; /* استفاده از flexbox برای چیدمان بهتر */
-                justify-content: flex-end; /* چیدمان از سمت راست */
-            }
-            #nav ul li {
-                display: inline-block;
-                margin-left: 15px; /* فاصله بین آیتم‌های منو */
-            }
-            #nav ul li a {
-                text-decoration: none;
-                color: #fff; /* رنگ متن منو */
-                font-size: 1em;
-            }
-            #nav ul ul {
-                display: none; /* منوهای کشویی به صورت پیش‌فرض مخفی */
-                position: absolute;
-                background: #333; /* پس‌زمینه منوی کشویی */
-                padding: 10px;
-            }
-            #nav ul li:hover > ul {
-                display: block; /* نمایش منوی کشویی هنگام هاور */
-            }
-
-            /* استایل برای آیکون‌های شبکه‌های اجتماعی */
-            .icons {
-                text-align: center !important; /* وسط‌چین کردن آیکون‌ها */
-                direction: ltr !important; /* جهت برای جلوگیری از به‌هم‌ریختگی */
-            }
-            .icons li {
-                display: inline-block;
-                margin: 0 15px; /* فاصله بین آیکون‌ها */
-            }
-
-            /* استایل برای هدر (ایردراپ یاب) */
-            #header h1 a {
-                font-family: 'Shabnam', sans-serif !important; /* فونت Shabnam */
-                color: #FFD700 !important; /* رنگ زرد */
-                font-size: 4.5em !important; /* اندازه بزرگ‌تر برای درشت‌تر شدن */
-                line-height: 1.2; /* تنظیم فاصله خطوط برای خوانایی بهتر */
-                display: inline-block; /* جلوگیری از مشکلات نمایش */
-                background: none !important; /* حذف پس‌زمینه احتمالی */
-                border: none !important; /* حذف کادر احتمالی */
-                text-align: center; /* وسط‌چین کردن متن هدر */
-                text-decoration: none; /* حذف زیرخط احتمالی */
-            }
-            #header h1 {
-                background: none !important; /* حذف کادر زرد */
-                border: none !important; /* حذف کادر زرد */
-                border-radius: 0; /* حذف گوشه‌های گرد */
-                padding: 15px 20px; /* فاصله داخلی */
-                margin: 10px auto; /* فاصله خارجی و وسط‌چین */
-                text-align: center; /* وسط‌چین کردن هدر */
-                max-width: 400px; /* عرض کادر */
-            }
-
-            /* تغییر رنگ پس‌زمینه به رنگ برگ گل */
-            #page-wrapper {
-                background-color: #A9CBA4 !important; /* رنگ برگ گل */
-            }
-
-            /* استایل‌های responsive برای موبایل */
-            @media screen and (max-width: 768px) {
-                /* تنظیم منو در موبایل */
-                #nav ul {
-                    flex-direction: column; /* چیدمان عمودی در موبایل */
-                    text-align: right;
-                }
-                #nav ul li {
-                    display: block;
-                    margin: 10px 0; /* فاصله عمودی بین آیتم‌ها */
-                }
-                #nav ul ul {
-                    position: static; /* جلوگیری از مشکلات موقعیت در موبایل */
-                    background: #444; /* پس‌زمینه کمی روشن‌تر */
-                }
-
-                /* تنظیم هدر در موبایل */
-                #header h1 a {
-                    font-size: 3em !important; /* اندازه فونت کوچکتر در موبایل */
-                }
-                #header h1 {
-                    max-width: 100%; /* عرض کادر در موبایل */
-                    padding: 10px 15px; /* فاصله داخلی کمتر */
-                }
-
-                /* تنظیم آیکون‌های شبکه‌های اجتماعی در موبایل */
-                .icons li {
-                    margin: 0 10px; /*距離 کمتر در موبایل */
-                }
-
-                /* تنظیم بنر در موبایل */
-                .banner {
-                    padding: 10px 0; /* کاهش padding در موبایل */
-                    margin: 0; /* حذف margin */
-                    width: 100%; /* عرض کامل */
-                }
-                .banner img {
-                    width: 100%; /* عرض تصویر 100% */
-                    max-width: 100%; /* حذف محدودیت max-width */
-                    height: auto;
-                }
-
-                /* تنظیم بخش‌های دیگر */
-                .box.highlight, .box.post {
-                    text-align: right; /* راست‌چین کردن محتوا */
-                }
-            }
-        </style>
-    </head>
-    <body class="is-preload">
-        <div id="page-wrapper">
-
-            <!-- Header -->
-            <div id="header">
-                <!-- لوگو -->
-                <h1><a href="index.html" id="logo"><em>ایردراپ یاب</em></a></h1>
-
-                <!-- منو -->
-                <nav id="nav">
-                    <ul>
-                        <li class="current"><a href="index.html">خانه</a></li>
-                        <li>
-                            <a href="#">منوی کشویی</a>
-                            <ul>
-                                <li><a href="#">لورم دلور</a></li>
-                                <li><a href="#">ماگنا فازلس</a></li>
-                                <li><a href="#">اتیم سد تمپوس</a></li>
-                                <li>
-                                    <a href="#">زیرمنو</a>
-                                    <ul>
-                                        <li><a href="#">لورم دلور</a></li>
-                                        <li><a href="#">فازلس ماگنا</a></li>
-                                        <li><a href="#">ماگنا فازلس</a></li>
-                                        <li><a href="#">اتیم نیسل</a></li>
-                                        <li><a href="#">ورئروس فیوگیت</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">ورئروس فیوگیت</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="left-sidebar.html">نوار کناری چپ</a></li>
-                        <li><a href="right-sidebar.html">نوار کناری راست</a></li>
-                        <li><a href="two-sidebar.html">دو نوار کناری</a></li>
-                        <li><a href="no-sidebar.html">درباره ایردراپ</a></li>
-                        <li><a href="ایردراپ های تایید شده.html">ایردراپ های تایید شده</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <!-- بنر -->
-            <section class="banner">
-                <img src="assets/images/ایردراپ_20250403_112626_0000.png" alt="بنر سایت">
-                <a href="#" class="button button--primary button--large">مشاهده محصولات</a>
-            </section>
-
-            <!-- بخش برجسته -->
-            <section class="wrapper style1">
-                <div class="container">
-                    <div class="row gtr-200">
-                        <section class="col-4 col-12-narrower">
-                            <div class="box highlight">
-                                <i class="icon solid major fa-paper-plane"></i>
-                                <h3>این مهم است</h3>
-                                <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-                            </div>
-                        </section>
-                        <section class="col-4 col-12-narrower">
-                            <div class="box highlight">
-                                <i class="icon solid major fa-pencil-alt"></i>
-                                <h3>همچنین مهم</h3>
-                                <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-                            </div>
-                        </section>
-                        <section class="col-4 col-12-narrower">
-                            <div class="box highlight">
-                                <i class="icon solid major fa-wrench"></i>
-                                <h3>احتمالاً مهم</h3>
-                                <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </section>
-
-            <!-- عنوان بزرگ -->
-            <section class="wrapper style2">
-                <div class="container">
-                    <header class="major">
-                        <h2>یک عنوان بسیار بزرگ که می‌توانید برای هر چیزی استفاده کنید</h2>
-                        <p>با یک زیرعنوان بسیار کوچک که درست زیر آن قرار دارد</p>
-                    </header>
-                </div>
-            </section>
-
-            <!-- پست‌ها -->
-            <section class="wrapper style1">
-                <div class="container">
-                    <div class="row">
-                        <section class="col-6 col-12-narrower">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>اولین مورد</h3>
-                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="col-6 col-12-narrower">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>دومین مورد</h3>
-                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="row">
-                        <section class="col-6 col-12-narrower">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>سومین مورد</h3>
-                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="col-6 col-12-narrower">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>چهارمین مورد</h3>
-                                    <p>دویس نکوئ نیسی، دابیپس سد متیس ات کویس، نیب. سد ات دابیپس نیسل امیت متیس، سد آ روترو آکومسان سد. سوسپندیسه او.</p>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </section>
-
-            <!-- فراخوان -->
-            <section id="cta" class="wrapper style3">
-                <div class="container">
-                    <header>
-                        <h2>آیا آماده‌اید که ماجراجویی خود را ادامه دهید؟</h2>
-                        <a href="#" class="button">سکه وارد کنید</a>
-                    </header>
-                </div>
-            </section>
-
-            <!-- Footer -->
-            <div id="footer">
-                <div class="container">
-                    <div class="row">
-                        <section class="col-3 col-6-narrower col-12-mobilep">
-                            <h3>لینک‌های مطالب</h3>
-                            <ul class="links">
-                                <li><a href="#">متیس ات کویس روترو</a></li>
-                                <li><a href="#">سوسپندیسه امیت واریوس</a></li>
-                                <li><a href="#">سد ات دابیپس کویس</a></li>
-                                <li><a href="#">روترو آکومسان دولور</a></li>
-                                <li><a href="#">متیس روترو آکومسان</a></li>
-                                <li><a href="#">سوسپندیسه واریوس نیب</a></li>
-                                <li><a href="#">سد ات دابیپس متیس</a></li>
-                            </ul>
-                        </section>
-                        <section class="col-3 col-6-narrower col-12-mobilep">
-                            <h3>لینک‌های بیشتر</h3>
-                            <ul class="links">
-                                <li><a href="#">دویس نکوئ نیسی دابیپس</a></li>
-                                <li><a href="#">سد ات دابیپس کویس</a></li>
-                                <li><a href="#">روترو آکومسان سد</a></li>
-                                <li><a href="#">متیس ات سد آکومسان</a></li>
-                                <li><a href="#">دویس نکوئ نیسی سد</a></li>
-                                <li><a href="#">سد ات دابیپس کویس</a></li>
-                                <li><a href="#">روترو امیت واریوس</a></li>
-                            </ul>
-                        </section>
-                        <section class="col-6 col-12-narrower">
-                            <h3>تماس با ما</h3>
-                            <form>
-                                <div class="row gtr-50">
-                                    <div class="col-6 col-12-mobilep">
-                                        <input type="text" name="name" id="name" placeholder="نام" />
-                                    </div>
-                                    <div class="col-6 col-12-mobilep">
-                                        <input type="email" name="email" id="email" placeholder="ایمیل" />
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea name="message" id="message" placeholder="پیام" rows="5"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <ul class="actions">
-                                            <li><input type="submit" class="button alt" value="ارسال پیام" /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </form>
-                        </section>
-                    </div>
-                </div>
-
-                <!-- آیکون‌ها -->
-                <ul class="icons">
-                    <li><a href="#" class="icon brands fa-twitter"><span class="label">توییتر</span></a></li>
-                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">فیس‌بوک</span></a></li>
-                    <li><a href="#" class="icon brands fa-github"><span class="label">گیت‌هاب</span></a></li>
-                    <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">لینکدین</span></a></li>
-                    <li><a href="#" class="icon brands fa-google-plus-g"><span class="label">گوگل پلاس</span></a></li>
+        <!-- Header -->
+        <div id="header">
+            <h1><a href="index.html"><em>ایردراپ یاب</em></a></h1>
+            <nav id="nav">
+                <ul>
+                    <li class="current"><a href="index.html">خانه</a></li>
+                    <li><a href="x.html">ایردراپ‌های تایید شده</a></li>
+                    <li><a href="testnet.html">تست‌نت</a></li>
+                    <li><a href="on-chain.html">ایردراپ زنجیره‌ای</a></li>
+                    <li><a href="no-sidebar.html">درباره ما</a></li>
                 </ul>
+            </nav>
+        </div>
 
-                <!-- کپی‌رایت -->
+        <!-- بنر -->
+        <section class="banner">
+            <img src="assets/images/ایردراپ_20250403_112626_0000.png" alt="بنر سایت">
+            <div class="banner-icons">
+                <a href="x.html" class="fab fa-telegram" title="تلگرام"></a>
+                <a href="testnet.html" title="تست نت"><img src="https://cryptologos.cc/logos/polygon-matic-logo.png" width="48" /></a>
+                <a href="on-chain.html" title="ایردراپ زنجیره‌ای"><img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" width="48" /></a>
+            </div>
+        </section>
+
+        <!-- معرفی سایت -->
+        <section class="wrapper style2">
+            <div class="container">
+                <header class="major">
+                    <h2>مرجع معتبر ایردراپ‌های رایگان و مطمئن</h2>
+                    <p>در ایردراپ یاب، جدیدترین و معتبرترین ایردراپ‌های رایگان را از منابع رسمی دنبال کنید. تیم ما با بررسی دقیق پروژه‌ها، فقط فرصت‌هایی را معرفی می‌کند که ارزش زمان و تلاش شما را داشته باشند. چه به‌دنبال تست‌نت باشید، چه ایردراپ‌های آن‌چین، اینجا نقطه شروع مناسبی است.</p>
+                </header>
+            </div>
+        </section>
+
+        <!-- پست‌ها -->
+        <section class="wrapper style1">
+            <div class="container">
+                <div class="row">
+                    <section class="col-6 col-12-narrower">
+                        <div class="box post">
+                            <a href="#" class="image left"><img src="images/pic01.jpg" alt="پست ۱" /></a>
+                            <div class="inner">
+                                <h3>اولین مورد</h3>
+                                <p>نمونه‌ای از ایردراپ‌های منتخب همراه با آموزش دریافت و بررسی کامل پروژه.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="col-6 col-12-narrower">
+                        <div class="box post">
+                            <a href="#" class="image left"><img src="images/pic02.jpg" alt="پست ۲" /></a>
+                            <div class="inner">
+                                <h3>دومین مورد</h3>
+                                <p>نحوه شرکت در تست‌نت و دریافت توکن‌های رایگان از شبکه‌های مختلف.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="cta" class="wrapper style3">
+            <div class="container">
+                <header>
+                    <h2>شروع ماجرا از اینجاست</h2>
+                    <a href="hey.html" class="button">شروع کن</a>
+                </header>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <section class="col-3 col-6-narrower col-12-mobilep">
+                        <h3>موارد مرتبط</h3>
+                        <ul class="links">
+                            <li><a href="#">آموزش ساخت کیف پول</a></li>
+                            <li><a href="#">اتصال به شبکه‌های تست</a></li>
+                            <li><a href="#">راهنمای دریافت ایردراپ</a></li>
+                            <li><a href="#">لیست ایردراپ‌های در حال انجام</a></li>
+                        </ul>
+                    </section>
+                    <section class="col-3 col-6-narrower col-12-mobilep">
+                        <h3>شبکه‌های اجتماعی ما</h3>
+                        <ul class="icons">
+                            <li><a href="#" class="fab fa-instagram" style="color:#E1306C;"></a></li>
+                            <li><a href="#" class="fab fa-telegram" style="color:#0088cc;"></a></li>
+                            <li><a href="#" class="fab fa-discord" style="color:#7289da;"></a></li>
+                            <li><a href="#" class="fab fa-x-twitter" style="color:#1da1f2;"></a></li>
+                            <li><a href="#" class="fab fa-github" style="color:#333;"></a></li>
+                        </ul>
+                    </section>
+                    <section class="col-6 col-12-narrower">
+                        <h3>تماس با ما</h3>
+                        <form>
+                            <div class="row gtr-50">
+                                <div class="col-6 col-12-mobilep">
+                                    <input type="text" name="name" id="name" placeholder="نام" />
+                                </div>
+                                <div class="col-6 col-12-mobilep">
+                                    <input type="email" name="email" id="email" placeholder="ایمیل" />
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" id="message" placeholder="پیام" rows="5"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li><input type="submit" class="button alt" value="ارسال پیام" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
                 <div class="copyright">
                     <ul class="menu">
-                        <li>© بی‌عنوان. کلیه حقوق محفوظ است</li>
-                        <li>طراحی: <a href="http://html5up.net">HTML5 UP</a></li>
+                        <li>کلیه حقوق این سایت برای ایردراپ یاب محفوظ است</li>
                     </ul>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- اسکریپت‌ها -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.dropotron.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
-    </body>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
 </html>
