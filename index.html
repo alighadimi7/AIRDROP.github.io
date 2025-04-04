@@ -12,27 +12,29 @@
             background: #0d0d0d url('assets/images/stars-bg.jpg') repeat top center;
             background-size: cover;
             color: #fff;
+            margin: 0;
+            padding: 0;
         }
         .banner {
             text-align: center;
             padding: 40px 0;
         }
+        .banner img {
+            max-width: 100%;
+            height: auto;
+        }
         .banner-icons a {
             display: inline-block;
-            margin: 0 20px;
-            font-size: 3em;
+            margin: 0 15px;
+            font-size: 2.5em;
             color: white;
             transition: transform 0.3s ease;
-        }
-        .banner-icons a img {
-            width: 48px;
-            height: 48px;
         }
         .banner-icons a:hover {
             transform: scale(1.2);
         }
         #header h1 a {
-            font-size: 4em;
+            font-size: 3em;
             color: #FFD700;
             text-decoration: none;
         }
@@ -46,20 +48,13 @@
             padding: 2rem;
             margin: 2rem auto;
         }
-        .icon-colored {
-            color: #1da1f2;
-        }
         #footer {
             background: #111;
             color: #ccc;
             padding: 3rem 1rem;
         }
-        .links li, .icons li {
-            list-style: none;
-        }
         .icons li a {
-            color: #ccc;
-            font-size: 1.5em;
+            font-size: 2em;
             margin: 0 10px;
         }
         .icons li a:hover {
@@ -70,139 +65,87 @@
             margin-top: 30px;
             color: #999;
         }
-        @media screen and (max-width: 768px) {
-            .banner-icons a {
-                font-size: 2em;
-                margin: 0 10px;
-            }
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="is-preload">
-<div id="page-wrapper">
-    <div id="header">
-        <h1><a href="index.html"><em>ایردراپ یاب</em></a></h1>
-        <nav id="nav">
-            <ul>
-                <li class="current"><a href="index.html">خانه</a></li>
-                <li><a href="x.html">ایردراپ‌های تایید شده</a></li>
-                <li><a href="testnet.html">تست‌نت</a></li>
-                <li><a href="on-chain.html">ایردراپ زنجیره‌ای</a></li>
-                <li><a href="no-sidebar.html">درباره ما</a></li>
-            </ul>
-        </nav>
-    </div>
-
-    <section class="banner">
-        <img src="assets/images/ایردراپ_20250403_112626_0000.png" alt="بنر سایت">
-        <div class="banner-icons">
-            <a href="x.html" class="fab fa-telegram" title="تلگرام"></a>
-            <a href="testnet.html" title="تست نت"><img src="https://cryptologos.cc/logos/arbitrum-arb-logo.png" alt="تست نت"></a>
-            <a href="on-chain.html" title="ایردراپ زنجیره‌ای"><img src="https://cryptologos.cc/logos/optimism-ethereum-logo.png" alt="ایردراپ زنجیره‌ای"></a>
-        </div>
-    </section>
-
-    <section class="wrapper style2">
-        <div class="container">
-            <header class="major">
-                <h2>همه چیز درباره ایردراپ و فرصت‌های طلایی دنیای کریپتو</h2>
-                <p>سایت ایردراپ یاب با هدف معرفی بهترین و مطمئن‌ترین ایردراپ‌ها راه‌اندازی شده است. ما جدیدترین فرصت‌ها را از شبکه‌های مختلف مثل اتریوم، آربیتروم، آپتیمیزم و سایر تست‌نت‌ها و پروژه‌های زنجیره‌ای بررسی کرده و با آموزش‌های دقیق و کاربردی در اختیار شما قرار می‌دهیم. با ما همراه باشید تا یک قدم جلوتر از دیگران باشید.</p>
-            </header>
-        </div>
-    </section>
-
-    <section class="wrapper style1">
-        <div class="container">
-            <div class="row">
-                <section class="col-6 col-12-narrower">
-                    <div class="box post">
-                        <a href="#" class="image left"><img src="images/pic01.jpg" alt="پست ۱" /></a>
-                        <div class="inner">
-                            <h3>اولین مورد</h3>
-                            <p>نمونه‌ای از ایردراپ‌های منتخب همراه با آموزش دریافت و بررسی کامل پروژه.</p>
-                        </div>
-                    </div>
-                </section>
-                <section class="col-6 col-12-narrower">
-                    <div class="box post">
-                        <a href="#" class="image left"><img src="images/pic02.jpg" alt="پست ۲" /></a>
-                        <div class="inner">
-                            <h3>دومین مورد</h3>
-                            <p>نحوه شرکت در تست‌نت و دریافت توکن‌های رایگان از شبکه‌های مختلف.</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </section>
-
-    <section id="cta" class="wrapper style3">
-        <div class="container">
-            <header>
-                <h2>شروع ماجرا از اینجاست</h2>
-                <a href="hey.html" class="button">شروع کن</a>
-            </header>
-        </div>
-    </section>
-
-    <div id="footer">
-        <div class="container">
-            <div class="row">
-                <section class="col-3 col-6-narrower col-12-mobilep">
-                    <h3>موارد مرتبط</h3>
-                    <ul class="links">
-                        <li><a href="#">آموزش ساخت کیف پول</a></li>
-                        <li><a href="#">اتصال به شبکه‌های تست</a></li>
-                        <li><a href="#">راهنمای دریافت ایردراپ</a></li>
-                        <li><a href="#">لیست ایردراپ‌های در حال انجام</a></li>
-                    </ul>
-                </section>
-                <section class="col-3 col-6-narrower col-12-mobilep">
-                    <h3>شبکه‌های اجتماعی ما</h3>
-                    <ul class="icons">
-                        <li><a href="#" class="fab fa-instagram" style="color:#E1306C;"></a></li>
-                        <li><a href="#" class="fab fa-telegram" style="color:#0088cc;"></a></li>
-                        <li><a href="#" class="fab fa-discord" style="color:#7289da;"></a></li>
-                        <li><a href="#" class="fab fa-x-twitter" style="color:#1da1f2;"></a></li>
-                        <li><a href="#" class="fab fa-github" style="color:#333;"></a></li>
-                    </ul>
-                </section>
-                <section class="col-6 col-12-narrower">
-                    <h3>تماس با ما</h3>
-                    <form>
-                        <div class="row gtr-50">
-                            <div class="col-6 col-12-mobilep">
-                                <input type="text" name="name" id="name" placeholder="نام" />
-                            </div>
-                            <div class="col-6 col-12-mobilep">
-                                <input type="email" name="email" id="email" placeholder="ایمیل" />
-                            </div>
-                            <div class="col-12">
-                                <textarea name="message" id="message" placeholder="پیام" rows="5"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <ul class="actions">
-                                    <li><input type="submit" class="button alt" value="ارسال پیام" /></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </form>
-                </section>
-            </div>
-            <div class="copyright">
-                <ul class="menu">
-                    <li>کلیه حقوق این سایت برای ایردراپ یاب محفوظ است</li>
+    <div id="page-wrapper">
+        <div id="header">
+            <h1><a href="index.html"><em>ایردراپ یاب</em></a></h1>
+            <nav id="nav">
+                <ul>
+                    <li class="current"><a href="index.html">خانه</a></li>
+                    <li><a href="x.html">ایردراپ‌های تایید شده</a></li>
+                    <li><a href="testnet.html">تست‌نت</a></li>
+                    <li><a href="on-chain.html">ایردراپ زنجیره‌ای</a></li>
+                    <li><a href="no-sidebar.html">درباره ما</a></li>
                 </ul>
+            </nav>
+        </div>
+
+        <section class="banner">
+            <img src="assets/images/banner.png" alt="بنر سایت">
+            <div class="banner-icons">
+                <a href="x.html" class="fab fa-telegram" title="تلگرام"></a>
+                <a href="testnet.html" title="تست نت" class="fab fa-codepen"></a>
+                <a href="on-chain.html" title="ایردراپ زنجیره‌ای" class="fab fa-ethereum"></a>
+            </div>
+        </section>
+
+        <section class="wrapper style2">
+            <div class="container">
+                <header class="major">
+                    <h2>مرجع معتبر ایردراپ‌های رایگان و مطمئن</h2>
+                    <p>در ایردراپ یاب، جدیدترین و معتبرترین ایردراپ‌های رایگان را از منابع رسمی دنبال کنید. تیم ما با بررسی دقیق پروژه‌ها، فقط فرصت‌هایی را معرفی می‌کند که ارزش زمان و تلاش شما را داشته باشند. چه به‌دنبال تست‌نت باشید، چه ایردراپ‌های آن‌چین، اینجا نقطه شروع مناسبی است.</p>
+                </header>
+            </div>
+        </section>
+
+        <section id="cta" class="wrapper style3">
+            <div class="container">
+                <header>
+                    <h2>شروع ماجرا از اینجاست</h2>
+                    <a href="hey.html" class="button">شروع کن</a>
+                </header>
+            </div>
+        </section>
+
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <section class="col-3 col-6-narrower col-12-mobilep">
+                        <h3>موارد مرتبط</h3>
+                        <ul class="links">
+                            <li><a href="#">آموزش ساخت کیف پول</a></li>
+                            <li><a href="#">اتصال به شبکه‌های تست</a></li>
+                            <li><a href="#">راهنمای دریافت ایردراپ</a></li>
+                            <li><a href="#">لیست ایردراپ‌های در حال انجام</a></li>
+                        </ul>
+                    </section>
+                    <section class="col-3 col-6-narrower col-12-mobilep">
+                        <h3>شبکه‌های اجتماعی ما</h3>
+                        <ul class="icons">
+                            <li><a href="#" class="fab fa-instagram" style="color:#E1306C;"></a></li>
+                            <li><a href="#" class="fab fa-telegram" style="color:#0088cc;"></a></li>
+                            <li><a href="#" class="fab fa-discord" style="color:#7289da;"></a></li>
+                            <li><a href="#" class="fab fa-x-twitter" style="color:#1da1f2;"></a></li>
+                            <li><a href="#" class="fab fa-github" style="color:#333;"></a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="copyright">
+                    <ul class="menu">
+                        <li>کلیه حقوق این سایت برای ایردراپ یاب محفوظ است</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
