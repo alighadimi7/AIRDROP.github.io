@@ -12,20 +12,14 @@
             background: #0d0d0d url('assets/images/stars-bg.jpg') repeat top center;
             background-size: cover;
             color: #fff;
-            margin: 0;
-            padding: 0;
         }
         .banner {
             text-align: center;
             padding: 40px 0;
         }
-        .banner img {
-            max-width: 100%;
-            height: auto;
-        }
         .banner-icons a {
             display: inline-block;
-            margin: 0 15px;
+            margin: 0 20px;
             font-size: 2.5em;
             color: white;
             transition: transform 0.3s ease;
@@ -33,8 +27,14 @@
         .banner-icons a:hover {
             transform: scale(1.2);
         }
+        .banner-icons img {
+            vertical-align: middle;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+        }
         #header h1 a {
-            font-size: 3em;
+            font-size: 4em;
             color: #FFD700;
             text-decoration: none;
         }
@@ -53,8 +53,12 @@
             color: #ccc;
             padding: 3rem 1rem;
         }
+        .links li, .icons li {
+            list-style: none;
+        }
         .icons li a {
-            font-size: 2em;
+            color: #ccc;
+            font-size: 1.5em;
             margin: 0 10px;
         }
         .icons li a:hover {
@@ -70,6 +74,8 @@
 </head>
 <body class="is-preload">
     <div id="page-wrapper">
+
+        <!-- Header -->
         <div id="header">
             <h1><a href="index.html"><em>ایردراپ یاب</em></a></h1>
             <nav id="nav">
@@ -83,24 +89,27 @@
             </nav>
         </div>
 
+        <!-- بنر -->
         <section class="banner">
-            <img src="assets/images/banner.png" alt="بنر سایت">
+            <img src="assets/images/ایردراپ_20250403_112626_0000.png" alt="بنر سایت" style="max-width: 100%; height: auto;">
             <div class="banner-icons">
                 <a href="x.html" class="fab fa-telegram" title="تلگرام"></a>
-                <a href="testnet.html" title="تست نت" class="fab fa-codepen"></a>
-                <a href="on-chain.html" title="ایردراپ زنجیره‌ای" class="fab fa-ethereum"></a>
+                <a href="testnet.html" title="تست نت"><img src="https://cryptologos.cc/logos/arbitrum-arb-logo.png" alt="تست نت" /></a>
+                <a href="on-chain.html" title="ایردراپ زنجیره‌ای"><img src="https://cryptologos.cc/logos/optimism-ethereum-op-logo.png" alt="ایردراپ زنجیره‌ای" /></a>
             </div>
         </section>
 
+        <!-- معرفی سایت -->
         <section class="wrapper style2">
             <div class="container">
                 <header class="major">
-                    <h2>مرجع معتبر ایردراپ‌های رایگان و مطمئن</h2>
-                    <p>در ایردراپ یاب، جدیدترین و معتبرترین ایردراپ‌های رایگان را از منابع رسمی دنبال کنید. تیم ما با بررسی دقیق پروژه‌ها، فقط فرصت‌هایی را معرفی می‌کند که ارزش زمان و تلاش شما را داشته باشند. چه به‌دنبال تست‌نت باشید، چه ایردراپ‌های آن‌چین، اینجا نقطه شروع مناسبی است.</p>
+                    <h2>کشف فرصت‌های ناب ایردراپ در دنیای کریپتو</h2>
+                    <p>در ایردراپ یاب به‌صورت تخصصی به معرفی ایردراپ‌های رایگان و تست‌نت‌های معتبر می‌پردازیم. تمامی پروژه‌ها قبل از معرفی، به دقت بررسی شده‌اند تا فقط ایردراپ‌هایی که بیشترین احتمال دریافت دارند به شما پیشنهاد شوند. هدف ما این است که با صرف کمترین زمان، بیشترین بازدهی را از دنیای ایردراپ‌ها کسب کنید.</p>
                 </header>
             </div>
         </section>
 
+        <!-- شروع ماجرا -->
         <section id="cta" class="wrapper style3">
             <div class="container">
                 <header>
@@ -110,6 +119,7 @@
             </div>
         </section>
 
+        <!-- Footer -->
         <div id="footer">
             <div class="container">
                 <div class="row">
@@ -143,6 +153,7 @@
     </div>
 
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
