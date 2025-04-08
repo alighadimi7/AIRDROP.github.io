@@ -1,0 +1,24 @@
+name: Block Others from Changing Code
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - main
+
+jobs:
+  block_others:
+    if: github.actor != 'alighadimi7'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close PR or block push
+        run: echo "Unauthorized change attempt blocked."
+
+      - name: Close Pull Request (if it's a PR)
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/close-pull@v3
+        with:
+          pull-request-number: ${{ github.event.pull_request.number }}
+          comment: |
+            این مخزن فقط توسط صاحب آن قابل تغییر است. درخواست شما خودکار بسته شد.
