@@ -3,706 +3,708 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ایردراپ یاب - مرجع جامع ایردراپ های ارز دیجیتال</title>
+    <title>ایردراپ یاب - مرجع جامع ایردراپ‌های کریپتو و NFT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E1E1E',
+                        secondary: '#2D2D2D',
+                        accent: '#d946ef',
+                        dark: '#121212',
+                        light: '#F5F5F5',
+                        neon: {
+                            purple: '#d946ef',
+                            pink: '#ec4899',
+                            blue: '#3b82f6'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Vazirmatn', 'Tahoma', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 5s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { 'box-shadow': '0 0 5px #d946ef' },
+                            '100%': { 'box-shadow': '0 0 20px #d946ef' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
         
         body {
             font-family: 'Vazirmatn', sans-serif;
-            background-color: #0f172a;
-            color: #e2e8f0;
+            background-color: #121212;
+            color: #F5F5F5;
+            overflow-x: hidden;
         }
         
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        .hero-pattern {
+            background-color: #1E1E1E;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(217, 70, 239, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(217, 70, 239, 0.1) 0%, transparent 20%),
+                linear-gradient(to bottom right, #2D2D2D, #1E1E1E);
         }
         
-        .airdrop-card {
-            background: rgba(15, 23, 42, 0.7);
+        .card-hover {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid transparent;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(217, 70, 239, 0.5), rgba(236, 72, 153, 0.5)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(217, 70, 239, 0.3);
+        }
+        
+        .search-box {
+            background: rgba(45, 45, 45, 0.7);
             backdrop-filter: blur(10px);
-            border: 1px solid #334155;
             transition: all 0.3s ease;
         }
         
-        .airdrop-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            border-color: #3b82f6;
+        .search-box:focus {
+            box-shadow: 0 0 0 3px rgba(217, 70, 239, 0.3);
         }
         
-        .category-badge {
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-item::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #d946ef, #ec4899);
+            transition: width 0.3s;
             position: absolute;
-            top: -10px;
-            left: 10px;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
+            bottom: -2px;
+            right: 0;
         }
         
-        .timer {
-            font-family: 'Courier New', monospace;
+        .nav-item:hover::after {
+            width: 100%;
         }
         
-        .rtl-support {
-            direction: rtl;
-            text-align: right;
+        .triangle-accent {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
         }
         
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .triangle-top-left {
+            top: 0;
+            left: 0;
+            border-width: 0 0 150px 150px;
+            border-color: transparent transparent #d946ef transparent;
+            opacity: 0.2;
         }
         
-        ::-webkit-scrollbar-track {
-            background: #1e293b;
+        .triangle-bottom-right {
+            bottom: 0;
+            right: 0;
+            border-width: 150px 150px 0 0;
+            border-color: #d946ef transparent transparent transparent;
+            opacity: 0.2;
         }
         
-        ::-webkit-scrollbar-thumb {
-            background: #3b82f6;
-            border-radius: 4px;
+        .full-width-banner {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
         }
         
-        /* Animation for featured airdrops */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+        @media (max-width: 768px) {
+            .full-width-banner {
+                height: 250px;
+            }
         }
         
-        .featured-airdrop {
-            animation: pulse 4s infinite;
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 5px #d946ef, 0 0 10px #d946ef;
+        }
+        
+        .neon-border {
+            position: relative;
+        }
+        
+        .neon-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, #d946ef, #ec4899);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pulse {
+            animation: pulse-slow 5s infinite;
+        }
+        
+        .glow-effect {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .airdrop-type-card {
+            transition: all 0.3s ease;
+        }
+        
+        .airdrop-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(217, 70, 239, 0.3);
+        }
+        
+        .wallet-img {
+            width: 100%;
+            height: 130px;
+            object-fit: contain;
+            padding: 15px;
+        }
+        
+        @media (max-width: 640px) {
+            .wallet-img {
+                height: 100px;
+            }
         }
     </style>
 </head>
-<body class="gradient-bg">
-    <!-- Header Section -->
-    <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-2 space-x-reverse">
-                <img src="images/logo.png" alt="ایردراپ یاب" class="h-10 w-10">
-                <h1 class="text-xl font-bold text-blue-400">ایردراپ یاب</h1>
-            </div>
-            
-            <nav class="hidden md:flex space-x-6 space-x-reverse">
-                <a href="#home" class="text-blue-400 hover:text-blue-300 transition">خانه</a>
-                <a href="#airdrops" class="text-slate-300 hover:text-blue-300 transition">ایردراپ‌ها</a>
-                <a href="#categories" class="text-slate-300 hover:text-blue-300 transition">دسته‌بندی‌ها</a>
-                <a href="#tutorials" class="text-slate-300 hover:text-blue-300 transition">آموزش‌ها</a>
-                <a href="#news" class="text-slate-300 hover:text-blue-300 transition">اخبار</a>
-                <a href="#about" class="text-slate-300 hover:text-blue-300 transition">درباره ما</a>
-            </nav>
-            
-            <div class="flex items-center space-x-3 space-x-reverse">
-                <button class="md:hidden text-slate-300">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
-                    <i class="fas fa-wallet mr-2"></i> کیف پول
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="py-16 px-4">
-        <div class="container mx-auto flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-blue-400">ایردراپ‌های ارز دیجیتال را پیدا کنید</h2>
-                <p class="text-lg text-slate-300 mb-8 leading-relaxed">
-                    ایردراپ روشی برای توزیع رایگان توکن‌های ارز دیجیتال به کاربران است. پروژه‌های بلاکچینی از این روش برای جذب کاربران جدید و ایجاد جامعه‌ی فعال استفاده می‌کنند. در ایردراپ یاب، شما می‌توانید جدیدترین و معتبرترین ایردراپ‌ها را پیدا کنید.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition flex items-center">
-                        <i class="fas fa-rocket mr-2"></i> ایردراپ‌های فعال
-                    </button>
-                    <button class="bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg transition flex items-center">
-                        <i class="fas fa-graduation-cap mr-2"></i> آموزش قدم به قدم
-                    </button>
-                </div>
-            </div>
-            
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-full max-w-md">
-                    <div class="absolute -inset-4 bg-blue-500/20 rounded-2xl blur-xl"></div>
-                    <div class="relative bg-slate-800/80 border border-slate-700 rounded-xl p-6">
-                        <img src="images/airdrop-hero.png" alt="Airdrop Illustration" class="w-full h-auto rounded-lg">
-                        <div class="mt-4 flex justify-between items-center">
-                            <div class="text-sm text-slate-400">
-                                <i class="fas fa-clock mr-1"></i> به روز شده در: ۲۰۲۵/۰۵/۱۵
-                            </div>
-                            <div class="text-xs bg-green-900/50 text-green-400 px-2 py-1 rounded">
-                                <i class="fas fa-circle mr-1"></i> فعال
+<body class="min-h-screen">
+    <!-- Geometric accent elements -->
+    <div class="triangle-accent triangle-top-left"></div>
+    <div class="triangle-accent triangle-bottom-right"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-primary/90 backdrop-blur-md sticky top-0 z-50 shadow-lg border-b border-purple-900/30">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <a href="#" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-pink pulse">ایردراپ یاب</a>
+                    <div class="hidden md:flex space-x-6 space-x-reverse">
+                        <div class="dropdown relative">
+                            <button class="nav-item text-light hover:text-neon-purple py-2 flex items-center">
+                                ایردراپ‌ها
+                                <i class="fas fa-chevron-down mr-2 text-xs"></i>
+                            </button>
+                            <div class="dropdown-menu absolute hidden bg-secondary mt-2 py-2 w-48 rounded-lg shadow-xl z-50 neon-border">
+                                <a href="#" class="block px-4 py-2 text-light hover:bg-primary hover:text-neon-purple">ایردراپ‌های تلگرام</a>
+                                <a href="#" class="block px-4 py-2 text-light hover:bg-primary hover:text-neon-purple">ایردراپ‌های کریپتو</a>
+                                <a href="#" class="block px-4 py-2 text-light hover:bg-primary hover:text-neon-purple">ایردراپ‌های NFT</a>
                             </div>
                         </div>
+                        <a href="#" class="nav-item text-light hover:text-neon-purple py-2">آموزش کیف پول</a>
+                        <a href="#" class="nav-item text-light hover:text-neon-purple py-2">ایردراپ چیست؟</a>
+                        <a href="#" class="nav-item text-light hover:text-neon-purple py-2">آموزش‌ها</a>
+                        <a href="#" class="nav-item text-light hover:text-neon-purple py-2">تماس با ما</a>
                     </div>
+                </div>
+                
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="relative">
+                        <input type="text" placeholder="جستجو..." class="search-box bg-secondary text-light px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-neon-purple w-40 md:w-64 border border-purple-900/30">
+                        <button class="absolute left-3 top-2 text-gray-400 hover:text-neon-purple">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <button class="md:hidden text-light glow-effect" id="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden mt-4 py-2 neon-border rounded-lg" id="mobile-menu">
+                <a href="#" class="block py-2 px-4 text-light hover:bg-secondary rounded hover:text-neon-purple">ایردراپ‌های تلگرام</a>
+                <a href="#" class="block py-2 px-4 text-light hover:bg-secondary rounded hover:text-neon-purple">ایردراپ‌های کریپتو</a>
+                <a href="#" class="block py-2 px-4 text-light hover:bg-secondary rounded hover:text-neon-purple">ایردراپ‌های NFT</a>
+                <a href="#" class="block py-2 px-4 text-light hover:bg-secondary rounded hover:text-neon-purple">آموزش کیف پول</a>
+                <a href="#" class="block py-2 px-4 text-light hover:bg-secondary rounded hover:text-neon-purple">ایردراپ چیست؟</a>
+                <a href="#" class="block py-2 px-4 text-light hover:bg-secondary rounded hover:text-neon-purple">آموزش‌ها</a>
+                <a href="#" class="block py-2 px-4 text-light hover:bg-secondary rounded hover:text-neon-purple">تماس با ما</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Banner -->
+    <div class="hero-pattern relative overflow-hidden border-b border-purple-900/30">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full">
+                <div class="absolute top-20 left-20 w-32 h-32 rounded-full bg-neon-purple/20 blur-3xl"></div>
+                <div class="absolute bottom-20 right-20 w-40 h-40 rounded-full bg-neon-pink/20 blur-3xl"></div>
+                <div class="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-neon-blue/20 blur-3xl"></div>
+            </div>
+        </div>
+        
+        <div class="w-full">
+            <!-- Full width banner image -->
+            <div class="full-width-banner bg-gray-800 flex items-center justify-center">
+                <span class="text-gray-500 text-xl">تصویر بنر اصلی (عرض کامل)</span>
+            </div>
+            
+            <div class="container mx-auto px-4 py-8 md:py-12 relative z-10">
+                <h1 class="text-3xl md:text-5xl font-bold text-light mb-4 text-center neon-text">بهترین ایردراپ‌های کریپتو و NFT را پیدا کنید</h1>
+                <p class="text-lg text-gray-300 mb-8 text-center">جامع‌ترین مرجع ایردراپ‌های تلگرام، ارزهای دیجیتال و NFT با آموزش‌های قدم به قدم</p>
+                <div class="flex justify-center space-x-4 space-x-reverse">
+                    <a href="#" class="bg-gradient-to-r from-neon-purple to-neon-pink hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-lg font-medium transition shadow-lg hover:shadow-purple-500/30">ایردراپ‌های جدید</a>
+                    <a href="#" class="bg-secondary hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-medium transition border border-purple-900/30 hover:border-neon-purple/50">آموزش کیف پول</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Banner Section (Empty as requested) -->
-    <section class="py-8 px-4">
-  <div class="container mx-auto bg-slate-800/50 border border-dashed border-slate-700 rounded-xl h-48 flex items-center justify-center overflow-hidden">
-    <img src="ایردراپ_20250403_112626_0000.png" alt="بنر ایردراپ" class="h-full w-auto max-w-full object-contain" />
-  </div>
-</section>
-
-    <!-- Active Airdrops Section -->
-    <section id="airdrops" class="py-12 px-4">
-        <div class="container mx-auto">
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-12">
+        <!-- New Token Airdrops -->
+        <section class="mb-16">
             <div class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-blue-400 flex items-center">
-                    <i class="fas fa-bolt mr-3"></i> ایردراپ‌های فعال
-                </h2>
-                <a href="#" class="text-blue-400 hover:text-blue-300 transition flex items-center">
-                    مشاهده همه <i class="fas fa-arrow-left mr-2"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-light border-r-4 border-neon-purple pr-4">ایردراپ توکن‌های جدید</h2>
+                <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                    مشاهده همه
+                    <i class="fas fa-arrow-left mr-2"></i>
                 </a>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Featured Airdrop -->
-                <div class="airdrop-card rounded-xl p-6 relative overflow-hidden featured-airdrop">
-                    <span class="category-badge bg-purple-600 text-white">NFT</span>
-                    <div class="flex items-center mb-4">
-                        <img src="images/opensea-logo.png" alt="OpenSea" class="h-12 w-12 rounded-full mr-3">
-                        <div>
-                            <h3 class="font-bold text-lg">OpenSea Pro Airdrop</h3>
-                            <div class="text-sm text-slate-400">تا ۱۰۰۰ دلار ارزش</div>
+                <!-- Airdrop Card 1 -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-40 bg-gray-800 flex items-center justify-center">
+                        <span class="text-gray-500">تصویر توکن جدید</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-light">توکن جدید Web3</h3>
+                            <span class="bg-neon-purple/20 text-neon-purple text-xs px-3 py-1 rounded-full">جدید</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">ایردراپ توکن جدید پروژه Web3 با پتانسیل رشد بالا در آینده نزدیک</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">شروع: ۱۴۰۲/۰۵/۲۰</span>
+                            <a href="#" class="text-neon-purple hover:text-purple-400 text-sm">جزئیات بیشتر</a>
                         </div>
                     </div>
-                    <p class="text-slate-300 mb-4 text-sm">
-                        ایردراپ جدید OpenSea Pro برای کاربران فعال این پلتفرم. برای واجد شرایط بودن باید حداقل ۳ معامله در ۳ ماه گذشته داشته باشید.
-                    </p>
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-sm">
-                            <div class="text-slate-400 mb-1">زمان باقی‌مانده:</div>
-                            <div class="timer text-green-400 font-bold">۱۲:۲۳:۴۵:۲۱</div>
-                        </div>
-                        <div class="text-sm">
-                            <div class="text-slate-400 mb-1">ارزش تخمینی:</div>
-                            <div class="text-yellow-400 font-bold">۵۰-۱۰۰۰ دلار</div>
-                        </div>
-                    </div>
-                    <div class="w-full bg-slate-700 rounded-full h-2 mb-4">
-                        <div class="bg-green-500 h-2 rounded-full" style="width: 65%"></div>
-                    </div>
-                    <div class="flex justify-between text-xs text-slate-400 mb-4">
-                        <span>ظرفیت باقی‌مانده: ۳۵٪</span>
-                        <span>شرکت‌کنندگان: ۱۲۴,۵۶۷</span>
-                    </div>
-                    <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg transition">
-                        <i class="fas fa-paper-plane mr-2"></i> شرکت در ایردراپ
-                    </button>
                 </div>
                 
-                <!-- Crypto Airdrop -->
-                <div class="airdrop-card rounded-xl p-6 relative overflow-hidden">
-                    <span class="category-badge bg-blue-600 text-white">ارز دیجیتال</span>
-                    <div class="flex items-center mb-4">
-                        <img src="images/arbitrum-logo.png" alt="Arbitrum" class="h-12 w-12 rounded-full mr-3">
-                        <div>
-                            <h3 class="font-bold text-lg">Arbitrum Odyssey 2.0</h3>
-                            <div class="text-sm text-slate-400">تا ۵۰۰ دلار ارزش</div>
+                <!-- Airdrop Card 2 -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-40 bg-gray-800 flex items-center justify-center">
+                        <span class="text-gray-500">تصویر توکن جدید</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-light">توکن DeFi 2.0</h3>
+                            <span class="bg-green-500/20 text-green-400 text-xs px-3 py-1 rounded-full">فعال</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">ایردراپ توکن پروژه DeFi نوآورانه با مدل اقتصادی جدید</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">تاریخ پایان: ۱۴۰۲/۰۶/۰۱</span>
+                            <a href="#" class="text-neon-purple hover:text-purple-400 text-sm">جزئیات بیشتر</a>
                         </div>
                     </div>
-                    <p class="text-slate-300 mb-4 text-sm">
-                        دور دوم ایردراپ Arbitrum برای کاربرانی که در اکوسیستم Arbitrum فعالیت داشته‌اند. نیاز به انجام تراکنش‌های خاص دارد.
-                    </p>
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-sm">
-                            <div class="text-slate-400 mb-1">زمان باقی‌مانده:</div>
-                            <div class="timer text-green-400 font-bold">۰۵:۱۸:۳۲:۱۰</div>
-                        </div>
-                        <div class="text-sm">
-                            <div class="text-slate-400 mb-1">ارزش تخمینی:</div>
-                            <div class="text-yellow-400 font-bold">۲۰-۵۰۰ دلار</div>
-                        </div>
-                    </div>
-                    <div class="w-full bg-slate-700 rounded-full h-2 mb-4">
-                        <div class="bg-green-500 h-2 rounded-full" style="width: 42%"></div>
-                    </div>
-                    <div class="flex justify-between text-xs text-slate-400 mb-4">
-                        <span>ظرفیت باقی‌مانده: ۵۸٪</span>
-                        <span>شرکت‌کنندگان: ۸۷,۴۳۲</span>
-                    </div>
-                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">
-                        <i class="fas fa-paper-plane mr-2"></i> شرکت در ایردراپ
-                    </button>
                 </div>
                 
-                <!-- Telegram Airdrop -->
-                <div class="airdrop-card rounded-xl p-6 relative overflow-hidden">
-                    <span class="category-badge bg-teal-600 text-white">تلگرام</span>
-                    <div class="flex items-center mb-4">
-                        <img src="images/ton-logo.png" alt="TON" class="h-12 w-12 rounded-full mr-3">
-                        <div>
-                            <h3 class="font-bold text-lg">TON Ecosystem Airdrop</h3>
-                            <div class="text-sm text-slate-400">تا ۳۰۰ دلار ارزش</div>
+                <!-- Airdrop Card 3 -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-40 bg-gray-800 flex items-center justify-center">
+                        <span class="text-gray-500">تصویر توکن جدید</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-light">توکن GameFi</h3>
+                            <span class="bg-yellow-500/20 text-yellow-400 text-xs px-3 py-1 rounded-full">به زودی</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">ایردراپ توکن بازی بلاکچینی با قابلیت‌های درآمدزایی</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">شروع: ۱۴۰۲/۰۵/۲۵</span>
+                            <a href="#" class="text-neon-purple hover:text-purple-400 text-sm">جزئیات بیشتر</a>
                         </div>
                     </div>
-                    <p class="text-slate-300 mb-4 text-sm">
-                        ایردراپ اکوسیستم TON برای کاربران فعال در ربات‌ها و برنامه‌های مبتنی بر TON. نیاز به عضویت در کانال‌های خاص دارد.
-                    </p>
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-sm">
-                            <div class="text-slate-400 mb-1">زمان باقی‌مانده:</div>
-                            <div class="timer text-green-400 font-bold">۰۸:۰۶:۱۵:۳۷</div>
-                        </div>
-                        <div class="text-sm">
-                            <div class="text-slate-400 mb-1">ارزش تخمینی:</div>
-                            <div class="text-yellow-400 font-bold">۱۰-۳۰۰ دلار</div>
-                        </div>
-                    </div>
-                    <div class="w-full bg-slate-700 rounded-full h-2 mb-4">
-                        <div class="bg-green-500 h-2 rounded-full" style="width: 78%"></div>
-                    </div>
-                    <div class="flex justify-between text-xs text-slate-400 mb-4">
-                        <span>ظرفیت باقی‌مانده: ۲۲٪</span>
-                        <span>شرکت‌کنندگان: ۱۵۶,۷۸۹</span>
-                    </div>
-                    <button class="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 rounded-lg transition">
-                        <i class="fas fa-paper-plane mr-2"></i> شرکت در ایردراپ
-                    </button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section id="categories" class="py-12 px-4 bg-slate-800/50">
-        <div class="container mx-auto">
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 text-blue-400">
-                <i class="fas fa-tags mr-3"></i> دسته‌بندی ایردراپ‌ها
-            </h2>
-            
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <a href="#" class="category-card bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl p-6 text-center transition transform hover:scale-105">
-                    <div class="bg-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-coins text-blue-400 text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">ارز دیجیتال</h3>
-                    <p class="text-sm text-slate-400">۲۴ ایردراپ فعال</p>
-                </a>
-                
-                <a href="#" class="category-card bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl p-6 text-center transition transform hover:scale-105">
-                    <div class="bg-purple-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-image text-purple-400 text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">NFT</h3>
-                    <p class="text-sm text-slate-400">۱۸ ایردراپ فعال</p>
-                </a>
-                
-                <a href="#" class="category-card bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl p-6 text-center transition transform hover:scale-105">
-                    <div class="bg-teal-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fab fa-telegram text-teal-400 text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">تلگرام</h3>
-                    <p class="text-sm text-slate-400">۱۵ ایردراپ فعال</p>
-                </a>
-                
-                <a href="#" class="category-card bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl p-6 text-center transition transform hover:scale-105">
-                    <div class="bg-yellow-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-gamepad text-yellow-400 text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">بازی‌ها</h3>
-                    <p class="text-sm text-slate-400">۹ ایردراپ فعال</p>
-                </a>
-                
-                <a href="#" class="category-card bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl p-6 text-center transition transform hover:scale-105">
-                    <div class="bg-pink-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-layer-group text-pink-400 text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold mb-2">لایه ۲</h3>
-                    <p class="text-sm text-slate-400">۱۲ ایردراپ فعال</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tutorials Section -->
-    <section id="tutorials" class="py-12 px-4">
-        <div class="container mx-auto">
-            <div class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-blue-400 flex items-center">
-                    <i class="fas fa-graduation-cap mr-3"></i> آموزش‌های قدم به قدم
-                </h2>
-                <a href="#" class="text-blue-400 hover:text-blue-300 transition flex items-center">
-                    مشاهده همه <i class="fas fa-arrow-left mr-2"></i>
-                </a>
-            </div>
+        </section>
+        
+        <!-- Airdrop Types -->
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-light border-r-4 border-neon-purple pr-4 mb-8">انواع ایردراپ‌های کریپتو</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-slate-800/80 border border-slate-700 rounded-xl overflow-hidden hover:border-blue-500 transition">
-                    <img src="images/wallet-tutorial.jpg" alt="Wallet Tutorial" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <div class="bg-blue-600/20 text-blue-400 text-xs px-3 py-1 rounded-full">جدید</div>
-                            <div class="text-slate-500 text-sm mr-3 flex items-center">
-                                <i class="fas fa-clock mr-1"></i> ۱۵ دقیقه
-                            </div>
+                <!-- Standard Airdrop -->
+                <div class="bg-secondary rounded-xl p-6 airdrop-type-card neon-border">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-neon-purple/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-gift text-neon-purple text-2xl"></i>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">آموزش ساخت کیف پول امن</h3>
-                        <p class="text-slate-400 text-sm mb-4">
-                            راهنمای کامل ساخت کیف پول امن برای دریافت ایردراپ‌ها بدون ریسک از دست دادن دارایی‌ها
-                        </p>
-                        <a href="tutorials/wallet-setup.html" class="text-blue-400 hover:text-blue-300 transition flex items-center">
-                            مطالعه آموزش <i class="fas fa-arrow-left mr-2"></i>
-                        </a>
+                        <h3 class="text-xl font-bold text-light">ایردراپ استاندارد</h3>
                     </div>
+                    <p class="text-gray-400 mb-6">کاربران فقط با ثبت نام یا داشتن یک کیف پول خاص مقدار مشخصی از توکن را به صورت رایگان دریافت می‌کنند. ساده‌ترین نوع ایردراپ که نیاز به انجام کار خاصی ندارد.</p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        مثال‌های عملی
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
                 </div>
                 
-                <div class="bg-slate-800/80 border border-slate-700 rounded-xl overflow-hidden hover:border-purple-500 transition">
-                    <img src="images/nft-tutorial.jpg" alt="NFT Tutorial" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <div class="bg-purple-600/20 text-purple-400 text-xs px-3 py-1 rounded-full">محبوب</div>
-                            <div class="text-slate-500 text-sm mr-3 flex items-center">
-                                <i class="fas fa-clock mr-1"></i> ۲۰ دقیقه
-                            </div>
+                <!-- Bounty Airdrop -->
+                <div class="bg-secondary rounded-xl p-6 airdrop-type-card neon-border">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-tasks text-blue-500 text-2xl"></i>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">آموزش شرکت در ایردراپ NFT</h3>
-                        <p class="text-slate-400 text-sm mb-4">
-                            چگونه در ایردراپ‌های NFT شرکت کنیم و بهترین پروژه‌ها را شناسایی کنیم؟
-                        </p>
-                        <a href="tutorials/nft-airdrop.html" class="text-purple-400 hover:text-purple-300 transition flex items-center">
-                            مطالعه آموزش <i class="fas fa-arrow-left mr-2"></i>
-                        </a>
+                        <h3 class="text-xl font-bold text-light">ایردراپ مبتنی بر وظیفه</h3>
                     </div>
+                    <p class="text-gray-400 mb-6">کاربران باید وظایفی مانند فالو کردن شبکه‌های اجتماعی، ریتوییت پست‌ها یا عضویت در گروه‌ها را انجام دهند. در ازای انجام هر وظیفه، امتیاز یا توکن دریافت می‌کنند.</p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        مثال‌های عملی
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
                 </div>
                 
-                <div class="bg-slate-800/80 border border-slate-700 rounded-xl overflow-hidden hover:border-teal-500 transition">
-                    <img src="images/telegram-tutorial.jpg" alt="Telegram Tutorial" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center mb-3">
-                            <div class="bg-teal-600/20 text-teal-400 text-xs px-3 py-1 rounded-full">ضروری</div>
-                            <div class="text-slate-500 text-sm mr-3 flex items-center">
-                                <i class="fas fa-clock mr-1"></i> ۱۰ دقیقه
-                            </div>
+                <!-- Holder Airdrop -->
+                <div class="bg-secondary rounded-xl p-6 airdrop-type-card neon-border">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-wallet text-green-500 text-2xl"></i>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">آموزش ایردراپ‌های تلگرام</h3>
-                        <p class="text-slate-400 text-sm mb-4">
-                            راهنمای کامل شرکت در ایردراپ‌های تلگرامی و تشخیص معتبر بودن آن‌ها
-                        </p>
-                        <a href="tutorials/telegram-airdrop.html" class="text-teal-400 hover:text-teal-300 transition flex items-center">
-                            مطالعه آموزش <i class="fas fa-arrow-left mr-2"></i>
-                        </a>
+                        <h3 class="text-xl font-bold text-light">ایردراپ مبتنی بر هولدینگ</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">به دارندگان توکن یا NFT خاصی در کیف پولشان توکن رایگان داده می‌شود. معمولاً برای پاداش دادن به سرمایه‌گذاران وفادار پروژه استفاده می‌شود.</p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        مثال‌های عملی
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Snapshot Airdrop -->
+                <div class="bg-secondary rounded-xl p-6 airdrop-type-card neon-border">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-camera text-yellow-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-light">ایردراپ اسنپ‌شات</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">پروژه در تاریخ خاصی از بلاک‌چین عکس می‌گیرد و به کسانی که شرایط خاصی دارند (مثل داشتن توکن یا مشارکت در دیفای) توکن می‌دهد. معمولاً بدون اطلاع قبلی انجام می‌شود.</p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        مثال‌های عملی
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Loyalty Airdrop -->
+                <div class="bg-secondary rounded-xl p-6 airdrop-type-card neon-border">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-pink-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-medal text-pink-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-light">ایردراپ وفاداری</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">به کاربرانی که از محصولات یا خدمات پروژه استفاده کرده‌اند یا در رأی‌دهی DAO مشارکت داشته‌اند توکن رایگان داده می‌شود. هدف تشویق مشارکت فعال در اکوسیستم است.</p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        مثال‌های عملی
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                
+                <!-- IDO Airdrop -->
+                <div class="bg-secondary rounded-xl p-6 airdrop-type-card neon-border">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-rocket text-purple-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-light">ایردراپ لانچ‌پد</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">هنگام راه‌اندازی اولیه پروژه در لانچ‌پدها (مثل بایننس یا کوین‌لیست) بخشی از توکن‌ها به کاربران علاقه‌مند یا شرکت‌کننده در IDO اهدا می‌شود.</p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        مثال‌های عملی
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Airdrop Categories -->
+        <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-light border-r-4 border-neon-purple pr-4 mb-8">دسته‌بندی ایردراپ‌ها</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Telegram Airdrops -->
+                <div class="bg-secondary rounded-xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-neon-purple/20 p-3 rounded-lg mr-4">
+                            <i class="fab fa-telegram text-neon-purple text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-light">ایردراپ‌های تلگرام</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">بهترین و جدیدترین ایردراپ‌های کانال‌های تلگرامی را در این بخش پیدا کنید. این ایردراپ‌ها معمولاً نیاز به انجام کارهای ساده دارند.</p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        مشاهده لیست کامل
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Crypto Airdrops -->
+                <div class="bg-secondary rounded-xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-coins text-blue-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-light">ایردراپ‌های کریپتو</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">ایردراپ‌های ارزهای دیجیتال معتبر که معمولاً توسط پروژه‌های بلاکچینی برای توزیع توکن انجام می‌شوند.</p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        مشاهده لیست کامل
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                
+                <!-- NFT Airdrops -->
+                <div class="bg-secondary rounded-xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-500/20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-palette text-purple-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-light">ایردراپ‌های NFT</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">ایردراپ‌های توکن‌های غیرمثلی (NFT) که معمولاً برای جوامع خاص و دارندگان برخی NFTها انجام می‌شود.</p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        مشاهده لیست کامل
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- What is Airdrop Section -->
+        <section class="mb-16 bg-secondary rounded-xl p-8 neon-border">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-2xl md:text-3xl font-bold text-light mb-4">ایردراپ چیست؟</h2>
+                    <p class="text-gray-400 mb-4">
+                        ایردراپ (Airdrop) به روشی در دنیای ارزهای دیجیتال گفته می‌شود که در آن پروژه‌های بلاکچینی توکن‌های خود را به صورت رایگان بین کاربران توزیع می‌کنند. این کار معمولاً برای افزایش آگاهی از پروژه، گسترش جامعه کاربری و یا پاداش دادن به کاربران وفادار انجام می‌شود.
+                    </p>
+                    <p class="text-gray-400 mb-6">
+                        ایردراپ‌ها می‌توانند به صورت خودکار برای دارندگان یک ارز خاص انجام شوند یا نیاز به انجام کارهایی مانند عضویت در کانال تلگرام، دنبال کردن صفحات اجتماعی یا تکمیل فرم‌های خاص داشته باشند.
+                    </p>
+                    <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                        بیشتر بخوانید
+                        <i class="fas fa-arrow-left mr-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-800 rounded-lg h-64 md:h-80 flex items-center justify-center">
+                        <span class="text-gray-500">تصویر توضیحی درباره ایردراپ</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="py-12 px-4 bg-slate-800/50">
-        <div class="container mx-auto">
-            <h2 class="text-2xl md:text-3xl font-bold text-center mb-12 text-blue-400">
-                <i class="fas fa-newspaper mr-3"></i> آخرین اخبار ایردراپ‌ها
-            </h2>
+        </section>
+        
+        <!-- Wallet Tutorials -->
+        <section class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-light border-r-4 border-neon-purple pr-4">آموزش ساخت کیف پول‌ها</h2>
+                <a href="#" class="text-neon-purple hover:text-purple-400 flex items-center">
+                    مشاهده همه
+                    <i class="fas fa-arrow-left mr-2"></i>
+                </a>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-slate-800/80 border border-slate-700 rounded-xl overflow-hidden hover:shadow-lg transition">
-                    <img src="images/news-1.jpg" alt="Crypto News" class="w-full h-40 object-cover">
-                    <div class="p-5">
-                        <div class="text-xs text-slate-500 mb-2 flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i> ۱۴۰۴/۰۲/۲۵
-                        </div>
-                        <h3 class="font-bold mb-3">پیش‌بینی بزرگترین ایردراپ‌های ۲۰۲۵</h3>
-                        <p class="text-slate-400 text-sm mb-4">
-                            تحلیل کارشناسان از پروژه‌هایی که احتمالاً در سال ۲۰۲۵ ایردراپ خواهند داشت
-                        </p>
-                        <a href="news/2025-airdrop-predictions.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
-                            ادامه خبر <i class="fas fa-arrow-left mr-2"></i>
-                        </a>
+                <!-- Wallet 1 -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-32 bg-gray-800 flex items-center justify-center">
+                        <img src="trust-wallet.png" alt="Trust Wallet" class="wallet-img">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-light mb-3">تراست والت</h3>
+                        <p class="text-gray-400 mb-4">آموزش قدم به قدم ساخت کیف پول Trust Wallet برای موبایل</p>
+                        <a href="#" class="text-neon-purple hover:text-purple-400 text-sm">مشاهده آموزش</a>
                     </div>
                 </div>
                 
-                <div class="bg-slate-800/80 border border-slate-700 rounded-xl overflow-hidden hover:shadow-lg transition">
-                    <img src="images/news-2.jpg" alt="Crypto News" class="w-full h-40 object-cover">
-                    <div class="p-5">
-                        <div class="text-xs text-slate-500 mb-2 flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i> ۱۴۰۴/۰۲/۲۰
-                        </div>
-                        <h3 class="font-bold mb-3">هشدار: کلاهبرداری‌های جدید ایردراپ</h3>
-                        <p class="text-slate-400 text-sm mb-4">
-                            شناسایی جدیدترین روش‌های کلاهبرداری در قالب ایردراپ و راه‌های تشخیص آن‌ها
-                        </p>
-                        <a href="news/airdrop-scam-alert.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
-                            ادامه خبر <i class="fas fa-arrow-left mr-2"></i>
-                        </a>
+                <!-- Wallet 2 -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-32 bg-gray-800 flex items-center justify-center">
+                        <img src="metamask.png" alt="MetaMask" class="wallet-img">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-light mb-3">متامسک</h3>
+                        <p class="text-gray-400 mb-4">آموزش نصب و راه‌اندازی کیف پول MetaMask برای مرورگر</p>
+                        <a href="#" class="text-neon-purple hover:text-purple-400 text-sm">مشاهده آموزش</a>
                     </div>
                 </div>
                 
-                <div class="bg-slate-800/80 border border-slate-700 rounded-xl overflow-hidden hover:shadow-lg transition">
-                    <img src="images/news-3.jpg" alt="Crypto News" class="w-full h-40 object-cover">
-                    <div class="p-5">
-                        <div class="text-xs text-slate-500 mb-2 flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i> ۱۴۰۴/۰۲/۱۵
-                        </div>
-                        <h3 class="font-bold mb-3">تاریخچه ایردراپ‌های موفق</h3>
-                        <p class="text-slate-400 text-sm mb-4">
-                            بررسی ایردراپ‌هایی که بیشترین سود را برای کاربران به همراه داشته‌اند
-                        </p>
-                        <a href="news/successful-airdrop-history.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
-                            ادامه خبر <i class="fas fa-arrow-left mr-2"></i>
-                        </a>
+                <!-- Wallet 3 -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-32 bg-gray-800 flex items-center justify-center">
+                        <img src="phantom.png" alt="Phantom" class="wallet-img">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-light mb-3">فانتوم</h3>
+                        <p class="text-gray-400 mb-4">آموزش ساخت کیف پول Phantom برای توکن‌های Solana</p>
+                        <a href="#" class="text-neon-purple hover:text-purple-400 text-sm">مشاهده آموزش</a>
                     </div>
                 </div>
                 
-                <div class="bg-slate-800/80 border border-slate-700 rounded-xl overflow-hidden hover:shadow-lg transition">
-                    <img src="images/news-4.jpg" alt="Crypto News" class="w-full h-40 object-cover">
-                    <div class="p-5">
-                        <div class="text-xs text-slate-500 mb-2 flex items-center">
-                            <i class="fas fa-calendar-alt mr-1"></i> ۱۴۰۴/۰۲/۱۰
-                        </div>
-                        <h3 class="font-bold mb-3">راهنمای مالیات بر ایردراپ‌ها</h3>
-                        <p class="text-slate-400 text-sm mb-4">
-                            چگونه ارزش ایردراپ‌های دریافتی را برای مقاصد مالیاتی محاسبه کنیم؟
-                        </p>
-                        <a href="news/airdrop-tax-guide.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
-                            ادامه خبر <i class="fas fa-arrow-left mr-2"></i>
-                        </a>
+                <!-- Wallet 4 -->
+                <div class="bg-secondary rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-32 bg-gray-800 flex items-center justify-center">
+                        <img src="ledger.png" alt="Ledger" class="wallet-img">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-light mb-3">لجر نانو</h3>
+                        <p class="text-gray-400 mb-4">آموزش استفاده از کیف پول سخت‌افزاری Ledger Nano</p>
+                        <a href="#" class="text-neon-purple hover:text-purple-400 text-sm">مشاهده آموزش</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 px-4">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h2 class="text-3xl font-bold mb-6 text-blue-400">درباره ایردراپ یاب</h2>
-                    <p class="text-slate-300 mb-6 leading-relaxed">
-                        ایردراپ یاب در سال ۲۰۲۳ با هدف کمک به کاربران فارسی زبان برای یافتن معتبرترین و سودآورترین ایردراپ‌های ارز دیجیتال تأسیس شد. تیم ما متشکل از متخصصان بلاکچین و تحلیلگران بازار ارزهای دیجیتال است که با دقت تمام ایردراپ‌ها را بررسی می‌کنند.
-                    </p>
-                    <p class="text-slate-300 mb-8 leading-relaxed">
-                        ما فقط ایردراپ‌های معتبر را معرفی می‌کنیم و همواره در تلاش هستیم تا با ارائه آموزش‌های جامع، کاربران را از خطرات احتمالی مانند کلاهبرداری‌ها آگاه سازیم.
-                    </p>
-                    <div class="flex space-x-4 space-x-reverse">
-                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition flex items-center">
-                            <i class="fas fa-users mr-2"></i> تیم ما
-                        </a>
-                        <a href="#" class="bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg transition flex items-center">
-                            <i class="fas fa-envelope mr-2"></i> تماس با ما
-                        </a>
-                    </div>
-                </div>
+        </section>
+    </div>
+    
+    <!-- Newsletter -->
+    <div class="bg-gradient-to-r from-primary to-secondary py-16 border-t border-b border-purple-900/30">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-bold text-light mb-4">در خبرنامه ایردراپ یاب عضو شوید</h2>
+                <p class="text-gray-400 mb-8">جدیدترین ایردراپ‌ها و فرصت‌های کسب درآمد از کریپتو را مستقیم در ایمیل خود دریافت کنید</p>
                 
-                <div class="md:w-1/2">
-                    <div class="bg-slate-800/80 border border-slate-700 rounded-xl p-8">
-                        <h3 class="text-xl font-bold mb-6 text-center text-blue-400">چرا ایردراپ یاب؟</h3>
-                        <div class="space-y-5">
-                            <div class="flex items-start">
-                                <div class="bg-blue-600/20 text-blue-400 p-2 rounded-full mr-4">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">فیلتر دقیق ایردراپ‌ها</h4>
-                                    <p class="text-slate-400 text-sm">ما فقط ایردراپ‌های معتبر را پس از بررسی دقیق منتشر می‌کنیم</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-blue-600/20 text-blue-400 p-2 rounded-full mr-4">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">آموزش‌های جامع</h4>
-                                    <p class="text-slate-400 text-sm">راهنمای قدم به قدم برای هر ایردراپ و کیف پول‌های مناسب</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-blue-600/20 text-blue-400 p-2 rounded-full mr-4">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">به‌روزرسانی لحظه‌ای</h4>
-                                    <p class="text-slate-400 text-sm">جدیدترین ایردراپ‌ها و اخبار مرتبط را به سرعت منتشر می‌کنیم</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-blue-600/20 text-blue-400 p-2 rounded-full mr-4">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">پشتیبانی فارسی</h4>
-                                    <p class="text-slate-400 text-sm">تیم پشتیبانی ما به زبان فارسی پاسخگوی سوالات شماست</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="آدرس ایمیل شما" class="flex-grow bg-secondary border border-purple-900/30 text-light px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-purple">
+                    <button class="bg-gradient-to-r from-neon-purple to-neon-pink hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-lg font-medium transition shadow-lg hover:shadow-purple-500/30 whitespace-nowrap">عضویت در خبرنامه</button>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="py-12 px-4 bg-gradient-to-r from-blue-900/50 to-slate-800/50">
-        <div class="container mx-auto max-w-4xl">
-            <div class="bg-slate-800/80 border border-slate-700 rounded-xl p-8 md:p-10 text-center">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-blue-400">در خبرنامه ایردراپ یاب عضو شوید</h2>
-                <p class="text-slate-300 mb-8 max-w-2xl mx-auto">
-                    جدیدترین ایردراپ‌ها و اخبار مهم را مستقیم در ایمیل خود دریافت کنید. هرگز فرصتی را از دست ندهید!
-                </p>
-                <form class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
-                    <input type="email" placeholder="آدرس ایمیل شما" class="flex-grow bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-300">
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition whitespace-nowrap">
-                        <i class="fas fa-paper-plane mr-2"></i> عضویت
-                    </button>
-                </form>
-                <p class="text-slate-500 text-xs mt-4">
-                    ما هرگز ایمیل شما را با شخص ثالثی به اشتراک نمی‌گذاریم.
-                </p>
-            </div>
-        </div>
-    </section>
-
+    </div>
+    
     <!-- Footer -->
-    <footer class="bg-slate-900/90 border-t border-slate-800 pt-12 pb-6 px-4">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+    <footer class="bg-dark py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <div class="flex items-center mb-4">
-                        <img src="images/logo.png" alt="ایردراپ یاب" class="h-10 w-10 mr-3">
-                        <h3 class="text-xl font-bold text-blue-400">ایردراپ یاب</h3>
-                    </div>
-                    <p class="text-slate-400 text-sm mb-4">
-                        مرجع جامع و معتبر ایردراپ‌های ارز دیجیتال برای کاربران فارسی زبان
-                    </p>
+                    <h3 class="text-xl font-bold text-light mb-4">ایردراپ یاب</h3>
+                    <p class="text-gray-400">مرجع تخصصی ایردراپ‌های کریپتو، تلگرام و NFT با ارائه جدیدترین فرصت‌ها و آموزش‌های کاربردی</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-light mb-4">لینک‌های سریع</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition">صفحه اصلی</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition">ایردراپ‌های جدید</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition">آموزش کیف پول</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition">تماس با ما</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-light mb-4">دسته‌بندی‌ها</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition">ایردراپ‌های تلگرام</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition">ایردراپ‌های کریپتو</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition">ایردراپ‌های NFT</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-neon-purple transition">آموزش‌ها</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-light mb-4">شبکه‌های اجتماعی</h4>
                     <div class="flex space-x-4 space-x-reverse">
-                        <a href="#" class="text-slate-400 hover:text-blue-400 transition">
-                            <i class="fab fa-telegram text-xl"></i>
+                        <a href="#" class="bg-secondary hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center text-light hover:text-neon-purple transition">
+                            <i class="fab fa-telegram"></i>
                         </a>
-                        <a href="#" class="text-slate-400 hover:text-blue-400 transition">
-                            <i class="fab fa-twitter text-xl"></i>
+                        <a href="#" class="bg-secondary hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center text-light hover:text-neon-purple transition">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="text-slate-400 hover:text-blue-400 transition">
-                            <i class="fab fa-instagram text-xl"></i>
+                        <a href="#" class="bg-secondary hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center text-light hover:text-neon-purple transition">
+                            <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="text-slate-400 hover:text-blue-400 transition">
-                            <i class="fab fa-youtube text-xl"></i>
+                        <a href="#" class="bg-secondary hover:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center text-light hover:text-neon-purple transition">
+                            <i class="fab fa-youtube"></i>
                         </a>
                     </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4 text-blue-400">لینک‌های سریع</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">صفحه اصلی</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">ایردراپ‌های فعال</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">آموزش‌ها</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">اخبار</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">تماس با ما</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4 text-blue-400">دسته‌بندی‌ها</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">ارز دیجیتال</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">NFT</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">تلگرام</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">بازی‌ها</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">لایه ۲</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4 text-blue-400">تماس با ما</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-slate-400">
-                            <i class="fas fa-envelope mr-3 text-blue-400"></i> info@airdrop-yab.com
-                        </li>
-                        <li class="flex items-center text-slate-400">
-                            <i class="fas fa-phone mr-3 text-blue-400"></i> +۹۸ ۹۱۲ ۳۴۵ ۶۷۸۹
-                        </li>
-                        <li class="flex items-start text-slate-400">
-                            <i class="fas fa-map-marker-alt mr-3 mt-1 text-blue-400"></i> تهران، خیابان آزادی، کوچه توسعه، پلاک ۱۲
-                        </li>
-                    </ul>
                 </div>
             </div>
             
-            <div class="border-t border-slate-800 pt-6 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-slate-500 text-sm mb-4 md:mb-0">
-                    © ۲۰۲۵ ایردراپ یاب. تمام حقوق محفوظ است.
-                </p>
-                <div class="flex space-x-6 space-x-reverse">
-                    <a href="#" class="text-slate-500 hover:text-blue-400 text-sm transition">قوانین و مقررات</a>
-                    <a href="#" class="text-slate-500 hover:text-blue-400 text-sm transition">حریم خصوصی</a>
-                    <a href="#" class="text-slate-500 hover:text-blue-400 text-sm transition">سوالات متداول</a>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 mb-4 md:mb-0">© ۱۴۰۲ ایردراپ یاب - تمام حقوق محفوظ است</p>
+                    <div class="flex space-x-6 space-x-reverse">
+                        <a href="#" class="text-gray-500 hover:text-neon-purple transition">قوانین و مقررات</a>
+                        <a href="#" class="text-gray-500 hover:text-neon-purple transition">حریم خصوصی</a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 left-6 bg-blue-600 hover:bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center transition opacity-0 invisible">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
+    
     <script>
-        // Back to Top Button
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        
-        // Airdrop Timers (Example for one timer)
-        function updateTimer() {
-            const timerElement = document.querySelector('.timer');
-            if (timerElement) {
-                // This is just a demo - in a real app you would calculate the actual time remaining
-                let time = timerElement.textContent;
-                let parts = time.split(':');
-                let days = parseInt(parts[0]);
-                let hours = parseInt(parts[1]);
-                let minutes = parseInt(parts[2]);
-                let seconds = parseInt(parts[3]);
-                
-                seconds--;
-                if (seconds < 0) {
-                    seconds = 59;
-                    minutes--;
-                    if (minutes < 0) {
-                        minutes = 59;
-                        hours--;
-                        if (hours < 0) {
-                            hours = 23;
-                            days--;
-                        }
-                    }
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('block');
+                } else {
+                    mobileMenu.classList.remove('block');
+                    mobileMenu.classList.add('hidden');
                 }
-                
-                timerElement.textContent = 
-                    `${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
-        }
-        
-        setInterval(updateTimer, 1000);
-        
-        // Mobile Menu Toggle (would need additional HTML/CSS for the menu)
-        const mobileMenuButton = document.querySelector('button.md\\:hidden');
-        mobileMenuButton.addEventListener('click', () => {
-            alert('منوی موبایل باز می‌شود - این یک دمو است');
+            });
+            
+            // Add floating animation to airdrop cards
+            const airdropCards = document.querySelectorAll('.card-hover');
+            airdropCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('floating');
+            });
         });
     </script>
-<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >ایردراپ یاب</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Alighadimi76/airport" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Airdrop7/alighadimi7" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>
